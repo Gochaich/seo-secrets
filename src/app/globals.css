@@ -1,27 +1,53 @@
 @import "tailwindcss";
 
 /*
- * Токены оформления.
+ * Дизайн-система SEO Secrets.
+ * Значения сняты с текущего сайта на Tilda — цвета и шрифт остаются узнаваемыми.
  *
- * ЭТАП 3 заменит значения на фирменные. Правило, которое важно соблюдать и после:
- * цвета, шрифты и радиусы задаются ТОЛЬКО здесь. В компонентах используем
- * `bg-surface`, `text-muted` и т.п., а не `bg-[#123456]`. Иначе через месяц
- * на сайте будет пять оттенков одного зелёного.
+ * ПРАВИЛО: цвета, шрифты и радиусы задаются ТОЛЬКО здесь.
+ * В компонентах используем bg-surface, text-muted, text-accent и т.п.
+ * Произвольные значения вида bg-[#114be8] не использовать: из-за них
+ * на сайте заводится по пять оттенков одного синего.
+ *
+ * Сайт тёмный по замыслу — светлой темы нет, и это осознанно.
  */
 @theme {
-  --color-bg: #ffffff;
-  --color-surface: #f6f7f8;
-  --color-border: #e2e6e9;
-  --color-ink: #14181b;
-  --color-muted: #5b6670;
-  --color-accent: #0f6b4c;
+  /* Поверхности */
+  --color-bg: #1e1e1e;
+  --color-surface: #232323;
+  --color-surface-2: #2a2a2a;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-strong: rgba(255, 255, 255, 0.16);
+
+  /* Текст */
+  --color-ink: #ffffff;
+  --color-muted: #cfcfcf;
+  --color-subtle: #9b9d9f;
+
+  /* Фирменный синий — кнопки, ссылки, активные состояния */
+  --color-accent: #114be8;
+  --color-accent-hover: #0b30d9;
   --color-accent-ink: #ffffff;
 
-  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
-    Arial, sans-serif;
+  /* Дополнительные акценты: подсветка цифр и результатов */
+  --color-cyan: #36e0ff;
+  --color-yellow: #f5f04a;
+  --color-success: #27d061;
+
+  /* Шрифты. Montserrat — фирменный, подключается в layout */
+  --font-sans: var(--font-montserrat), system-ui, -apple-system, "Segoe UI",
+    Roboto, Arial, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
-  --radius-card: 0.625rem;
+  /* Радиусы */
+  --radius-btn: 100px;
+  --radius-card: 12px;
+  --radius-card-lg: 22px;
+}
+
+/* Градиент для акцентных элементов — снят с карточек кейсов на Tilda */
+@utility bg-brand-gradient {
+  background-image: linear-gradient(135deg, #0018f0, #00b4f0, #00c2ea);
 }
 
 html {
@@ -32,4 +58,15 @@ body {
   background: var(--color-bg);
   color: var(--color-ink);
   font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-cyan);
+  outline-offset: 2px;
 }
