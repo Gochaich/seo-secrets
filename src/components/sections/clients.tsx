@@ -1,5 +1,9 @@
 import Image from 'next/image';
-import { Container, Section, SectionTitle } from '@/components/layout/container';
+import {
+  Container,
+  Section,
+  SectionTitle,
+} from '@/components/layout/container';
 import { clientsIntl, clientsKz, type Client } from '@content/ru/home';
 
 function ClientLogo({ client }: { client: Client }) {

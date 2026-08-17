@@ -14,7 +14,10 @@ export function SiteHeader() {
           {site.name}
         </Link>
 
-        <nav aria-label="Основное меню" className="order-3 w-full lg:order-none lg:w-auto">
+        <nav
+          aria-label="Основное меню"
+          className="order-3 w-full lg:order-none lg:w-auto"
+        >
           <ul className="flex flex-wrap gap-x-6 gap-y-2">
             {mainNav.map((item) => (
               <li key={item.href}>

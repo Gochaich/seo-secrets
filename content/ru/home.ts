@@ -21,35 +21,133 @@ export type Client = {
 };
 
 export const clientsKz: Client[] = [
-  { name: 'Kaspi.kz', href: 'https://kaspi.kz', logo: `${TILDA}/tild3661-3339-4330-a161-666537363261/photo.png` },
-  { name: 'Kolesa.kz', href: 'https://kolesa.kz', logo: `${TILDA}/tild3437-3937-4533-a461-643161613362/kolesa.png` },
-  { name: 'Krisha.kz', href: 'https://krisha.kz', logo: `${TILDA}/tild3935-3835-4965-b861-626237373363/krisha.png` },
-  { name: 'Teez', href: 'https://teez.kz', logo: `${TILDA}/tild3330-3765-4138-b739-366138316234/teez.png` },
-  { name: 'Alatau City Bank', href: 'https://alataucityinvest.kz/ru', logo: `${TILDA}/tild3264-3336-4630-b331-306438366536/alatau_city_bank.png` },
-  { name: 'BCC', href: 'https://bcc.kz', logo: `${TILDA}/tild3932-3234-4538-a265-626135346332/bcc.png` },
-  { name: 'ForteBank', href: 'https://forte.kz', logo: `${TILDA}/tild3931-6664-4930-b338-613433323937/forte.png` },
-  { name: 'Respect', href: 'https://respect.kz/ru', logo: `${TILDA}/tild3065-3230-4837-b261-333939303330/recpect.png` },
-  { name: 'Puma', href: 'https://puma.kz/', logo: `${TILDA}/tild3534-3730-4762-a530-626462643163/puma-white-logo-imag.png` },
-  { name: 'Allur Auto', href: 'https://allur.kz', logo: `${TILDA}/tild6361-3237-4430-a361-626632373261/Allur_logo_red_1.png` },
-  { name: 'Кинезио Доктор', href: 'https://kinesiodoctor.kz/', logo: `${TILDA}/tild6463-3633-4665-b336-633130336434/nashivka_Kinesio_doc.png` },
-  { name: 'Henry Bonnar', href: 'https://kz.henrybonnar.com/', logo: `${TILDA}/tild6334-3662-4337-b037-623036626639/Logo_H_Bonnar_2020_p.png` },
-  { name: 'Dream Moments', href: 'https://dream-moments.kz/', logo: `${TILDA}/tild3966-3130-4364-a566-663865336534/dream_moments.png` },
-  { name: 'СтроимДом', href: 'https://stroimdom.kz', logo: `${TILDA}/tild6337-3336-4665-a362-376536386539/_.png` },
-  { name: 'MasterCarp', href: 'https://master-carp.kz/', logo: `${TILDA}/tild3831-3836-4334-b666-613063353630/22.png` },
+  {
+    name: 'Kaspi.kz',
+    href: 'https://kaspi.kz',
+    logo: `${TILDA}/tild3661-3339-4330-a161-666537363261/photo.png`,
+  },
+  {
+    name: 'Kolesa.kz',
+    href: 'https://kolesa.kz',
+    logo: `${TILDA}/tild3437-3937-4533-a461-643161613362/kolesa.png`,
+  },
+  {
+    name: 'Krisha.kz',
+    href: 'https://krisha.kz',
+    logo: `${TILDA}/tild3935-3835-4965-b861-626237373363/krisha.png`,
+  },
+  {
+    name: 'Teez',
+    href: 'https://teez.kz',
+    logo: `${TILDA}/tild3330-3765-4138-b739-366138316234/teez.png`,
+  },
+  {
+    name: 'Alatau City Bank',
+    href: 'https://alataucityinvest.kz/ru',
+    logo: `${TILDA}/tild3264-3336-4630-b331-306438366536/alatau_city_bank.png`,
+  },
+  {
+    name: 'BCC',
+    href: 'https://bcc.kz',
+    logo: `${TILDA}/tild3932-3234-4538-a265-626135346332/bcc.png`,
+  },
+  {
+    name: 'ForteBank',
+    href: 'https://forte.kz',
+    logo: `${TILDA}/tild3931-6664-4930-b338-613433323937/forte.png`,
+  },
+  {
+    name: 'Respect',
+    href: 'https://respect.kz/ru',
+    logo: `${TILDA}/tild3065-3230-4837-b261-333939303330/recpect.png`,
+  },
+  {
+    name: 'Puma',
+    href: 'https://puma.kz/',
+    logo: `${TILDA}/tild3534-3730-4762-a530-626462643163/puma-white-logo-imag.png`,
+  },
+  {
+    name: 'Allur Auto',
+    href: 'https://allur.kz',
+    logo: `${TILDA}/tild6361-3237-4430-a361-626632373261/Allur_logo_red_1.png`,
+  },
+  {
+    name: 'Кинезио Доктор',
+    href: 'https://kinesiodoctor.kz/',
+    logo: `${TILDA}/tild6463-3633-4665-b336-633130336434/nashivka_Kinesio_doc.png`,
+  },
+  {
+    name: 'Henry Bonnar',
+    href: 'https://kz.henrybonnar.com/',
+    logo: `${TILDA}/tild6334-3662-4337-b037-623036626639/Logo_H_Bonnar_2020_p.png`,
+  },
+  {
+    name: 'Dream Moments',
+    href: 'https://dream-moments.kz/',
+    logo: `${TILDA}/tild3966-3130-4364-a566-663865336534/dream_moments.png`,
+  },
+  {
+    name: 'СтроимДом',
+    href: 'https://stroimdom.kz',
+    logo: `${TILDA}/tild6337-3336-4665-a362-376536386539/_.png`,
+  },
+  {
+    name: 'MasterCarp',
+    href: 'https://master-carp.kz/',
+    logo: `${TILDA}/tild3831-3836-4334-b666-613063353630/22.png`,
+  },
 ];
 
 export const clientsIntl: Client[] = [
   // Semrush и Enegix на текущем сайте идут без ссылок — сохраняем как есть
-  { name: 'Semrush', logo: `${TILDA}/tild6532-6235-4635-a432-646266313234/semrush.png` },
-  { name: 'Higgsfield.ai', href: 'https://higgsfield.ai', logo: `${TILDA}/tild6637-3034-4236-a564-306331346139/Higgsfield_Logo.png` },
-  { name: 'Hepsiburada', href: 'https://hepsiburada.com', logo: `${TILDA}/tild3739-6134-4564-b839-646239353833/hepsiburada.png` },
-  { name: 'Chevrolet', href: 'https://chevrolet.uz/', logo: `${TILDA}/tild6664-3564-4366-b432-643432353137/1200px-Chevrolet_new.png` },
-  { name: 'Atelier Wen', href: 'https://atelierwen.com', logo: `${TILDA}/tild3666-6463-4732-a431-376166633634/atelier.png` },
-  { name: 'Enegix', logo: `${TILDA}/tild3538-6461-4064-a161-336134373634/enegix.png` },
-  { name: 'Pickthebank', href: 'https://pickthebank.eu', logo: `${TILDA}/tild6335-3531-4930-b937-643561623063/pickthebank.png` },
-  { name: 'Bay Fresh Flowers', href: 'https://bayfreshflowers.com', logo: `${TILDA}/tild3962-6266-4434-a666-336136333334/bay_fresh_flowers.png` },
-  { name: 'AvtoElon', href: 'https://avtoelon.uz', logo: `${TILDA}/tild3164-6135-4662-b963-316435643664/avtoelon.png` },
-  { name: 'eyemunich', href: 'https://eyemunich.com', logo: `${TILDA}/tild3262-3536-4261-b835-336564333936/__2025-10-18__133555.png` },
+  {
+    name: 'Semrush',
+    logo: `${TILDA}/tild6532-6235-4635-a432-646266313234/semrush.png`,
+  },
+  {
+    name: 'Higgsfield.ai',
+    href: 'https://higgsfield.ai',
+    logo: `${TILDA}/tild6637-3034-4236-a564-306331346139/Higgsfield_Logo.png`,
+  },
+  {
+    name: 'Hepsiburada',
+    href: 'https://hepsiburada.com',
+    logo: `${TILDA}/tild3739-6134-4564-b839-646239353833/hepsiburada.png`,
+  },
+  {
+    name: 'Chevrolet',
+    href: 'https://chevrolet.uz/',
+    logo: `${TILDA}/tild6664-3564-4366-b432-643432353137/1200px-Chevrolet_new.png`,
+  },
+  {
+    name: 'Atelier Wen',
+    href: 'https://atelierwen.com',
+    logo: `${TILDA}/tild3666-6463-4732-a431-376166633634/atelier.png`,
+  },
+  {
+    name: 'Enegix',
+    logo: `${TILDA}/tild3538-6461-4064-a161-336134373634/enegix.png`,
+  },
+  {
+    name: 'Pickthebank',
+    href: 'https://pickthebank.eu',
+    logo: `${TILDA}/tild6335-3531-4930-b937-643561623063/pickthebank.png`,
+  },
+  {
+    name: 'Bay Fresh Flowers',
+    href: 'https://bayfreshflowers.com',
+    logo: `${TILDA}/tild3962-6266-4434-a666-336136333334/bay_fresh_flowers.png`,
+  },
+  {
+    name: 'AvtoElon',
+    href: 'https://avtoelon.uz',
+    logo: `${TILDA}/tild3164-6135-4662-b963-316435643664/avtoelon.png`,
+  },
+  {
+    name: 'eyemunich',
+    href: 'https://eyemunich.com',
+    logo: `${TILDA}/tild3262-3536-4261-b835-336564333936/__2025-10-18__133555.png`,
+  },
 ];
 
 export const benefits = [
@@ -214,7 +312,8 @@ export type ProcessStep = {
   duration?: string;
 };
 
-export const processIntro = 'Прозрачный путь от знакомства до управляемого роста';
+export const processIntro =
+  'Прозрачный путь от знакомства до управляемого роста';
 
 export const process: ProcessStep[] = [
   {
@@ -242,7 +341,8 @@ export const process: ProcessStep[] = [
         'GEO/AI SEO на присутствие проекта в LLM (ChatGPT, Perplexity и др.) и Google AIO',
       ],
     },
-    duration: 'Длительность: 2–3 недели (в зависимости от размера и ниши бизнеса)',
+    duration:
+      'Длительность: 2–3 недели (в зависимости от размера и ниши бизнеса)',
   },
   {
     title: 'Внедрение стратегии и запуск SEO-работ',
@@ -400,3 +500,13 @@ export const tools = [
   'OpenAI',
   'LLM Brand Monitor',
 ] as const;
+
+/**
+ * Блок «Пример работы» — идёт сразу после «Как SEO влияет на бизнес».
+ * Был пропущен при первом переносе, добавлен после сверки со скриншотом.
+ */
+export const impactExample = {
+  label: 'Пример работы:',
+  text: 'Абсолютно новый домен и новый сайт были сдвинуты с «мёртвой точки» на 2-й месяц работ, а к ноябрю трафик из Google достигал ~500 кликов в день.',
+  image: `${TILDA}/tild3461-3132-4565-a237-313831306366/noroot.png`,
+} as const;

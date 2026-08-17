@@ -1,6 +1,10 @@
 import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
-import { Container, Section, SectionTitle } from '@/components/layout/container';
+import {
+  Container,
+  Section,
+  SectionTitle,
+} from '@/components/layout/container';
 import { cases, casesIntro, type CaseStudy } from '@content/ru/home';
 
 function CaseCard({ item }: { item: CaseStudy }) {

@@ -1,4 +1,8 @@
-import { Container, Section, SectionTitle } from '@/components/layout/container';
+import {
+  Container,
+  Section,
+  SectionTitle,
+} from '@/components/layout/container';
 import { benefits } from '@content/ru/home';
 
 export function Benefits() {
