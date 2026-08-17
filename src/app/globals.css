@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+/*
+ * Токены оформления.
+ *
+ * ЭТАП 3 заменит значения на фирменные. Правило, которое важно соблюдать и после:
+ * цвета, шрифты и радиусы задаются ТОЛЬКО здесь. В компонентах используем
+ * `bg-surface`, `text-muted` и т.п., а не `bg-[#123456]`. Иначе через месяц
+ * на сайте будет пять оттенков одного зелёного.
+ */
+@theme {
+  --color-bg: #ffffff;
+  --color-surface: #f6f7f8;
+  --color-border: #e2e6e9;
+  --color-ink: #14181b;
+  --color-muted: #5b6670;
+  --color-accent: #0f6b4c;
+  --color-accent-ink: #ffffff;
+
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --radius-card: 0.625rem;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
