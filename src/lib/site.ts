@@ -15,7 +15,7 @@ export const contacts = {
   phoneFormatted: '+7 701 301 71 75',
   whatsapp: 'https://wa.me/77013017175',
   telegram: 'https://t.me/maxmolodec',
-  // TODO: перевести почту на домен агентства — см. docs/AUDIT.md
+  // Пока адрес не на домене агентства — решено оставить. См. docs/AUDIT.md, п. 2
   email: 'maxim@gaidar.top',
   address: 'Алматы, улица Наурызбай батыра, 50, ЖК ARBAT',
 } as const;
