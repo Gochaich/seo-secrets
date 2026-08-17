@@ -2,6 +2,13 @@ import createNextIntlPlugin from 'next-intl/plugin';
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
+  /**
+   * Адреса на Tilda заканчиваются слэшем: /o-nas/, /team/, /case-study/.
+   * Без этого флага Next.js редиректит /o-nas/ на /o-nas — то есть на переезде
+   * поменялись бы ВСЕ адреса сайта. Ровно то, чего мы не должны допустить.
+   */
+  trailingSlash: true,
+
   images: {
     // Отдаём современные форматы — заметная часть выигрыша в скорости против Тильды
     formats: ['image/avif', 'image/webp'],
