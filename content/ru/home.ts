@@ -306,3 +306,97 @@ export const rankingFactors = [
     text: 'Формируем продуманную внутреннюю перелинковку, которая усиливает релевантность страниц, распределяет вес по приоритетным кластерам и улучшает индексацию новых страниц.',
   },
 ] as const;
+
+/** Блок «География наших проектов» — карта */
+export const geography = {
+  title: 'География наших проектов',
+  image: `${TILDA}/tild6231-6532-4730-b663-346434383965/Group_127.svg`,
+} as const;
+
+export type MediaVideo = { youtubeId: string };
+
+export type MediaArticle = {
+  title: string;
+  description: string;
+  href: string;
+  cover: string;
+};
+
+export const mediaVideos: MediaVideo[] = [
+  { youtubeId: 'CFV1-ap1qMM' },
+  { youtubeId: 'oue3NAX3Nh4' },
+  { youtubeId: 'nlFxhWVCmJQ' },
+];
+
+export const mediaArticles: MediaArticle[] = [
+  {
+    title: '«Один раз всё настроить и забыть не получится»',
+    description: 'Тимлид SEO в Kolesa Group о трендах поисковиков',
+    href: 'https://digitalbusiness.kz/2025-06-23/odin-raz-vse-nastroit-i-zabit-ne-poluchitsya-timlid-seo-v-kolesa-group-o-trendah-poiskovikov/',
+    cover: `${TILDA}/tild3162-3361-4763-b665-646235386435/__2026-01-21__150456.png`,
+  },
+  {
+    title: 'Зачем бизнесу страница 404 ошибки?',
+    description:
+      'Зачем бизнесу нужна страница 404 и как она влияет на пользователей и продажи',
+    href: 'https://yvision.kz/post/zachem-biznesu-stranica-404-oshibki-396251',
+    cover: `${TILDA}/tild3836-3164-4164-b461-356637643463/BenditoMockup-Free-P.png`,
+  },
+  {
+    title: 'SEO-советы от команды Kolesa Group',
+    description: 'Максим Гайдар — советы по оптимизации от тимлида SEO-команды',
+    href: 'https://www.facebook.com/KolesaGroup/photos/1297562963785695/',
+    cover: `${TILDA}/tild3363-3832-4539-a639-303263336435/__2026-01-21__153301.png`,
+  },
+];
+
+export type Testimonial = {
+  name: string;
+  description: string;
+  youtubeId: string;
+};
+
+export const testimonials: Testimonial[] = [
+  {
+    name: 'Kriger.kz · Швейная компания',
+    description:
+      'Как SEO-стратегия усилила видимость сайта и увеличила поток заявок.',
+    youtubeId: 'F_ZRPAbvx4o',
+  },
+  {
+    name: 'MasterCarp · Товары для рыбалки',
+    description:
+      'Директор компании — о том, как SEO помогло стабильно расти в поиске.',
+    youtubeId: 'zVWTOGJjETs',
+  },
+  {
+    name: 'KinesioDoctor · Клиника реабилитации травм',
+    description:
+      'Как благодаря SEO сайт начал стабильно приносить новых пациентов и вырос в поисковой выдаче.',
+    youtubeId: 'WbrnvMpQ57k',
+  },
+];
+
+export const toolsIntro = {
+  title: 'SEO и AI SEO инструменты, которыми мы пользуемся',
+  lead: 'Наш стек — от краулинга и аналитики до визуализации и AI.',
+} as const;
+
+export const tools = [
+  'Serpstat',
+  'Topvisor',
+  'Semrush',
+  'Ahrefs',
+  'Netpeak Spider',
+  'Screaming Frog',
+  'JetOctopus',
+  'GA4',
+  'GSC',
+  'Looker Studio',
+  'Tableau',
+  'Monday',
+  'BigQuery',
+  'SQL',
+  'OpenAI',
+  'LLM Brand Monitor',
+] as const;
