@@ -2,10 +2,16 @@ import { setRequestLocale } from 'next-intl/server';
 import { Hero } from '@/components/sections/hero';
 import { Clients } from '@/components/sections/clients';
 import { Benefits } from '@/components/sections/benefits';
+import { Cases } from '@/components/sections/cases';
+import { Founder } from '@/components/sections/founder';
+import { Team } from '@/components/sections/team';
+import { Process } from '@/components/sections/process';
+import { RankingFactors } from '@/components/sections/ranking-factors';
 
 /**
  * Главная страница. Собирается по блокам с текущего сайта на Tilda.
- * Сейчас перенесена верхняя часть — остальные блоки добавляются отдельными задачами.
+ * Порядок блоков сохранён. Осталось перенести: география проектов, СМИ о нас,
+ * SEO vs PPC, цены, видео-отзывы, инструменты, FAQ.
  */
 
 export default async function HomePage({
@@ -21,6 +27,11 @@ export default async function HomePage({
       <Hero />
       <Clients />
       <Benefits />
+      <Cases />
+      <Founder />
+      <Team />
+      <Process />
+      <RankingFactors />
     </main>
   );
 }
