@@ -11,10 +11,11 @@ import { Process } from '@/components/sections/process';
 import { RankingFactors } from '@/components/sections/ranking-factors';
 import { Geography } from '@/components/sections/geography';
 import { Media } from '@/components/sections/media';
+import { LeadCost } from '@/components/sections/lead-cost';
 
 /**
  * Главная. Собирается блок за блоком по скриншотам текущего сайта.
- * Готово: первый экран, клиенты, влияние SEO, пример работы, кейсы, основатель, команда, этапы работы, факторы ранжирования, география, СМИ.
+ * Готово: первый экран, клиенты, влияние SEO, пример работы, кейсы, основатель, команда, этапы работы, факторы ранжирования, география, СМИ, цена лида.
  */
 export default async function HomePage({
   params,
@@ -44,6 +45,7 @@ export default async function HomePage({
       <RankingFactors />
       <Geography />
       <Media />
+      <LeadCost />
     </main>
   );
 }

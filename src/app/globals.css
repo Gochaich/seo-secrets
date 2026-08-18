@@ -27,6 +27,11 @@
   /* Подпись на той же кнопке заметно приглушённее глифа */
   --color-whatsapp-ink: #57a25b;
   --color-yellow: #f5f04a;
+  /* Тёплый конец шкалы: ими залита полоса дорогого лида */
+  --color-orange: #f0a05a;
+  --color-salmon: #f08a8a;
+  /* Мягкий зелёный — им набрана строка «SEO-лид дешевле…» */
+  --color-mint: #8ee89a;
 
   /* Montserrat — меню и тильдовские блоки */
   --font-sans:
@@ -85,6 +90,24 @@
     linear-gradient(var(--color-bg), var(--color-bg)), var(--gradient-brand);
   background-origin: border-box;
   background-clip: padding-box, border-box;
+}
+
+/* Шкала стоимости: холодная — дёшево, тёплая — дорого */
+@utility bg-gradient-cool {
+  background-image: linear-gradient(
+    90deg,
+    var(--color-cyan),
+    var(--color-green)
+  );
+}
+
+@utility bg-gradient-warm {
+  background-image: linear-gradient(
+    90deg,
+    var(--color-yellow),
+    var(--color-orange) 45%,
+    var(--color-salmon)
+  );
 }
 
 /*
