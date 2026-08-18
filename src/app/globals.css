@@ -20,6 +20,8 @@
   /* Светлее основного: им набраны номера пунктов и подписи вроде «Пример работы» */
   --color-accent-bright: #1e5bff;
   --color-cyan: #36e0ff;
+  /* Бирюзовый конец фирменного градиента — им нарисованы галочки */
+  --color-teal: #00c2ea;
   /* Фирменный зелёный WhatsApp — глиф в кнопке «Связаться» */
   --color-whatsapp: #25d366;
   --color-yellow: #f5f04a;
@@ -36,6 +38,28 @@
   /* Радиусы: пилюли и карточки */
   --radius-btn: 100px;
   --radius-card-lg: 22px;
+}
+
+/*
+ * Фирменный градиент — снят из CSS текущего сайта. Им нарисованы обводка
+ * кнопки «Связаться в WhatsApp» и галочки в блоке основателя.
+ */
+@utility bg-brand-gradient {
+  background-image: linear-gradient(135deg, #00c2ea, #00b4f0, #0018f0);
+}
+
+/*
+ * Градиентная обводка. Border прозрачный, под него подложены два фона:
+ * заливка страницы по padding-box и градиент по border-box. Так рамка
+ * получается градиентной без второго элемента и без масок.
+ */
+@utility border-brand {
+  border: 1.5px solid transparent;
+  background-image:
+    linear-gradient(var(--color-bg), var(--color-bg)),
+    linear-gradient(135deg, #00c2ea, #00b4f0, #0018f0);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
 }
 
 /*
