@@ -3,17 +3,20 @@ import { WhatsAppIcon } from '@/components/icons/social';
 import { whatsappWithText } from '@/lib/site';
 import { founder } from '@content/ru/home';
 
+/** id градиента для галочек — определение лежит один раз на всю секцию */
+const CHECK_GRADIENT = 'founder-check-gradient';
+
 function Check() {
   return (
     <svg
       viewBox="0 0 28 22"
       fill="none"
       aria-hidden
-      className="text-teal h-[22px] w-[28px] shrink-0"
+      className="h-[22px] w-[28px] shrink-0"
     >
       <path
         d="M2 12 10 19.5 26 2.5"
-        stroke="currentColor"
+        stroke={`url(#${CHECK_GRADIENT})`}
         strokeWidth="3"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -31,13 +34,33 @@ function Check() {
  * Галочки выровнены по НИЖНЕЙ строке пункта (items-end) — так же, как на Tilda:
  * у четвёртого пункта, который занимает две строки, галочка стоит у второй.
  *
- * Обводка кнопки — фирменный градиент из CSS сайта (#00c2ea -> #00b4f0 ->
- * #0018f0): бирюзовый слева перетекает в синий справа. Галочки, наоборот,
- * плоские бирюзовые — синего в них на оригинале нет.
+ * Обводка кнопки и галочки нарисованы фирменным градиентом: синий -> бирюза
+ * -> зелёный -> жёлтый, по диагонали снизу слева вверх направо. Подпись
+ * на кнопке зелёная, а не белая.
  */
 export function Founder() {
   return (
     <section className="relative overflow-hidden py-20 md:py-24">
+      {/*
+        Градиент для галочек. Один на секцию: у svg-градиента адресация по id,
+        и дублировать одинаковый id в каждой галочке нельзя.
+      */}
+      <svg width="0" height="0" aria-hidden className="absolute">
+        <defs>
+          {/*
+            Градиент горизонтальный, а не диагональный: по диагонали локоть
+            галочки уходит в самый низ шкалы и синеет, а на оригинале он
+            бирюзовый. По оси X цвет меняется вдоль штриха, как и нужно.
+          */}
+          <linearGradient id={CHECK_GRADIENT} x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="var(--color-accent-bright)" />
+            <stop offset="25%" stopColor="var(--color-cyan)" />
+            <stop offset="65%" stopColor="var(--color-green)" />
+            <stop offset="100%" stopColor="var(--color-yellow)" />
+          </linearGradient>
+        </defs>
+      </svg>
+
       {/*
         Синее пятно у правого края. На Tilda это PNG, поставленный абсолютными
         координатами; здесь — два градиента: широкий мягкий ореол и яркое ядро.
@@ -81,7 +104,7 @@ export function Founder() {
             href={whatsappWithText}
             target="_blank"
             rel="noopener"
-            className="rounded-btn border-brand mt-[60px] inline-flex items-center gap-3 px-8 py-4 text-[15px] transition-opacity hover:opacity-80"
+            className="rounded-btn border-brand text-whatsapp-ink mt-[60px] inline-flex items-center gap-3 px-8 py-4 text-[15px] transition-opacity hover:opacity-80"
           >
             {/*
               Глиф в иконке вырезан насквозь (fill-rule: evenodd), поэтому

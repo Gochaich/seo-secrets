@@ -19,11 +19,13 @@
   --color-accent-hover: #0b30d9;
   /* Светлее основного: им набраны номера пунктов и подписи вроде «Пример работы» */
   --color-accent-bright: #1e5bff;
+  /* Остановки фирменного градиента: синий -> бирюза -> зелёный -> жёлтый */
   --color-cyan: #36e0ff;
-  /* Бирюзовый конец фирменного градиента — им нарисованы галочки */
-  --color-teal: #00c2ea;
+  --color-green: #5ac84a;
   /* Фирменный зелёный WhatsApp — глиф в кнопке «Связаться» */
   --color-whatsapp: #25d366;
+  /* Подпись на той же кнопке заметно приглушённее глифа */
+  --color-whatsapp-ink: #57a25b;
   --color-yellow: #f5f04a;
 
   /* Montserrat — меню и тильдовские блоки */
@@ -41,11 +43,22 @@
 }
 
 /*
- * Фирменный градиент — снят из CSS текущего сайта. Им нарисованы обводка
- * кнопки «Связаться в WhatsApp» и галочки в блоке основателя.
+ * Фирменный градиент: синий -> бирюза -> зелёный -> жёлтый, по диагонали
+ * снизу слева вверх направо. Им нарисованы обводка кнопки «Связаться
+ * в WhatsApp» и галочки в блоке основателя.
  */
+:root {
+  --gradient-brand: linear-gradient(
+    75deg,
+    var(--color-accent-bright) 0%,
+    var(--color-cyan) 34%,
+    var(--color-green) 72%,
+    var(--color-yellow) 100%
+  );
+}
+
 @utility bg-brand-gradient {
-  background-image: linear-gradient(135deg, #00c2ea, #00b4f0, #0018f0);
+  background-image: var(--gradient-brand);
 }
 
 /*
@@ -56,8 +69,7 @@
 @utility border-brand {
   border: 1.5px solid transparent;
   background-image:
-    linear-gradient(var(--color-bg), var(--color-bg)),
-    linear-gradient(135deg, #00c2ea, #00b4f0, #0018f0);
+    linear-gradient(var(--color-bg), var(--color-bg)), var(--gradient-brand);
   background-origin: border-box;
   background-clip: padding-box, border-box;
 }
