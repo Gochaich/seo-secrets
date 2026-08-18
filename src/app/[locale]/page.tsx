@@ -7,10 +7,11 @@ import { ImpactExample } from '@/components/sections/impact-example';
 import { Cases } from '@/components/sections/cases';
 import { Founder } from '@/components/sections/founder';
 import { Team } from '@/components/sections/team';
+import { Process } from '@/components/sections/process';
 
 /**
  * Главная. Собирается блок за блоком по скриншотам текущего сайта.
- * Готово: первый экран, клиенты, влияние SEO, пример работы, кейсы, основатель, команда.
+ * Готово: первый экран, клиенты, влияние SEO, пример работы, кейсы, основатель, команда, этапы работы.
  */
 export default async function HomePage({
   params,
@@ -30,6 +31,7 @@ export default async function HomePage({
       <Cases />
       <Founder />
       <Team />
+      <Process />
     </main>
   );
 }

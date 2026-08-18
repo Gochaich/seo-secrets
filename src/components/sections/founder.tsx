@@ -1,6 +1,5 @@
 import Image from 'next/image';
-import { WhatsAppIcon } from '@/components/icons/social';
-import { whatsappWithText } from '@/lib/site';
+import { WhatsAppButton } from '@/components/ui/whatsapp-button';
 import { founder } from '@content/ru/home';
 
 /** id градиента для галочек — определение лежит один раз на всю секцию */
@@ -100,23 +99,7 @@ export function Founder() {
             ))}
           </ul>
 
-          <a
-            href={whatsappWithText}
-            target="_blank"
-            rel="noopener"
-            className="rounded-btn border-brand text-whatsapp-ink mt-[60px] inline-flex items-center gap-3 px-8 py-4 text-[15px] transition-opacity hover:opacity-80"
-          >
-            {/*
-              Глиф в иконке вырезан насквозь (fill-rule: evenodd), поэтому
-              под него подложен белый кружок — иначе телефон проваливается
-              в фон и читается тёмным.
-            */}
-            <span className="relative flex h-5 w-5 shrink-0 items-center justify-center">
-              <span className="absolute inset-[3px] rounded-full bg-white" />
-              <WhatsAppIcon className="text-whatsapp relative h-5 w-5" />
-            </span>
-            Связаться в WhatsApp
-          </a>
+          <WhatsAppButton className="mt-[60px]" />
         </div>
 
         <Image
