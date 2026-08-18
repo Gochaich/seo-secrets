@@ -88,6 +88,24 @@
 }
 
 /*
+ * Вторая градиентная обводка — холодная, бирюза в синий. Ею обведена
+ * кнопка «Читать больше» в блоке «СМИ о нас».
+ */
+@utility border-brand-cool {
+  border: 1.5px solid transparent;
+  background-image:
+    linear-gradient(var(--color-bg), var(--color-bg)),
+    linear-gradient(
+      100deg,
+      var(--color-cyan) 0%,
+      var(--color-cyan) 22%,
+      var(--color-accent-bright) 100%
+    );
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+/*
  * Поверхность карточки. Плоская заливка на тёмном фоне выглядит мёртвой,
  * поэтому: лёгкий градиент сверху вниз, светлая грань по верхнему краю
  * (будто свет падает сверху) и мягкая тень снизу, отделяющая карточку от фона.

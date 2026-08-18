@@ -547,7 +547,15 @@ export const geography = {
   ],
 } as const;
 
-export type MediaVideo = { youtubeId: string };
+export type MediaVideo = {
+  youtubeId: string;
+  /**
+   * Не выводится на странице — идёт в атрибут title у iframe.
+   * Без него скринридер объявляет три встроенных ролика как «frame».
+   * Названия сняты с плашек плеера на текущем сайте.
+   */
+  title: string;
+};
 
 export type MediaArticle = {
   title: string;
@@ -556,15 +564,26 @@ export type MediaArticle = {
   cover: string;
 };
 
+export const mediaTitle = 'СМИ о нас';
+
 export const mediaVideos: MediaVideo[] = [
-  { youtubeId: 'CFV1-ap1qMM' },
-  { youtubeId: 'oue3NAX3Nh4' },
-  { youtubeId: 'nlFxhWVCmJQ' },
+  {
+    youtubeId: 'CFV1-ap1qMM',
+    title: 'Максим Гайдар — SEO-специалист. Канал Serpstat',
+  },
+  {
+    youtubeId: 'oue3NAX3Nh4',
+    title: 'Максим Гайдар (Kolesa.kz / Krisha.kz). Канал Netpeak Software UA',
+  },
+  {
+    youtubeId: 'nlFxhWVCmJQ',
+    title: 'Кейс: с нуля до лидера ниши в SEO. Канал Make it Global',
+  },
 ];
 
 export const mediaArticles: MediaArticle[] = [
   {
-    title: '«Один раз всё настроить и забыть не получится»',
+    title: '«Один раз все настроить и забыть не получится»',
     description: 'Тимлид SEO в Kolesa Group о трендах поисковиков',
     href: 'https://digitalbusiness.kz/2025-06-23/odin-raz-vse-nastroit-i-zabit-ne-poluchitsya-timlid-seo-v-kolesa-group-o-trendah-poiskovikov/',
     cover: `${TILDA}/tild3162-3361-4763-b665-646235386435/__2026-01-21__150456.png`,
