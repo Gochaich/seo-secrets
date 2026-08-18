@@ -1,10 +1,10 @@
 import { setRequestLocale } from 'next-intl/server';
+import { Hero } from '@/components/sections/hero';
 
 /**
- * Главная страница. Пустая — собираем блок за блоком по скриншотам.
- * Каждый следующий блок добавляется отдельной задачей и отдельным превью.
+ * Главная. Собирается блок за блоком по скриншотам текущего сайта.
+ * Готово: первый экран.
  */
-
 export default async function HomePage({
   params,
 }: {
@@ -13,5 +13,9 @@ export default async function HomePage({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  return <main />;
+  return (
+    <main>
+      <Hero />
+    </main>
+  );
 }
