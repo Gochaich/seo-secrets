@@ -5,10 +5,11 @@ import { WhatsAppCta } from '@/components/sections/whatsapp-cta';
 import { Benefits } from '@/components/sections/benefits';
 import { ImpactExample } from '@/components/sections/impact-example';
 import { Cases } from '@/components/sections/cases';
+import { Founder } from '@/components/sections/founder';
 
 /**
  * Главная. Собирается блок за блоком по скриншотам текущего сайта.
- * Готово: первый экран, клиенты, влияние SEO, пример работы, кейсы.
+ * Готово: первый экран, клиенты, влияние SEO, пример работы, кейсы, основатель.
  */
 export default async function HomePage({
   params,
@@ -26,6 +27,7 @@ export default async function HomePage({
       <Benefits />
       <ImpactExample />
       <Cases />
+      <Founder />
     </main>
   );
 }
