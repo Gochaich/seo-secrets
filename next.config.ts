@@ -18,9 +18,8 @@ const nextConfig: NextConfig = {
     // Переносим файлы в /public и убираем этот блок. См. docs/AUDIT.md, п. 10.
     remotePatterns: [
       { protocol: 'https', hostname: 'static.tildacdn.pro' },
-      { protocol: 'https', hostname: 'thb.tildacdn.pro' },
-      // Официальные бренд-иконки инструментов — так же, как на текущем сайте
-      { protocol: 'https', hostname: 'cdn.simpleicons.org' },
+      // thb.tildacdn.pro и cdn.simpleicons.org больше не нужны:
+      // всё, что оттуда бралось, лежит в /public или отрисовано текстом.
     ],
   },
 

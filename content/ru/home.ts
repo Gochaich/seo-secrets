@@ -2,8 +2,10 @@
  * Тексты главной страницы.
  * Перенесены с seo-secrets.kz дословно — переписывание не входит в переезд.
  *
- * ВРЕМЕННО: `logo` ссылается на CDN Тильды. Когда картинки переедут в /public,
- * меняем только пути здесь. См. docs/AUDIT.md, п. 10.
+ * Картинки почти все переехали в /public/images. На CDN Тильды остались
+ * 11 файлов: их не было в карте выгрузки, адреса добавлены в
+ * scripts/assets.map.json. После следующего запуска npm run fetch:assets
+ * они тоже станут локальными и константа TILDA уйдёт. См. docs/AUDIT.md, п. 10.
  */
 
 const TILDA = 'https://static.tildacdn.pro';
@@ -15,7 +17,7 @@ export const hero = {
     'Мы — экспертное агентство из Алматы, с опытом в SEO более 9 лет.',
     'Работаем на ТОПы с 2016 года. Успешно развиваем проекты от малого бизнеса до глобальных корпораций.',
   ],
-  image: `${TILDA}/tild3265-3530-4366-b337-626333356238/Component_4.png`,
+  image: '/images/hero/component-4.png',
   /** Кнопка на текущем сайте — готовый SVG шириной 240px */
   cta: {
     image: `${TILDA}/tild6537-6534-4263-a532-653536663538/Group_63.svg`,
@@ -48,77 +50,77 @@ export const clientsKz: Client[] = [
   {
     name: 'Kaspi.kz',
     href: 'https://kaspi.kz',
-    logo: `${TILDA}/tild3661-3339-4330-a161-666537363261/photo.png`,
+    logo: '/images/clients/kaspi.png',
   },
   {
     name: 'Kolesa.kz',
     href: 'https://kolesa.kz',
-    logo: `${TILDA}/tild3437-3937-4533-a461-643161613362/kolesa.png`,
+    logo: '/images/clients/kolesa.png',
   },
   {
     name: 'Krisha.kz',
     href: 'https://krisha.kz',
-    logo: `${TILDA}/tild3935-3835-4965-b861-626237373363/krisha.png`,
+    logo: '/images/clients/krisha.png',
   },
   {
     name: 'Teez',
     href: 'https://teez.kz',
-    logo: `${TILDA}/tild3330-3765-4138-b739-366138316234/teez.png`,
+    logo: '/images/clients/teez.png',
   },
   {
     name: 'Alatau City Bank',
     href: 'https://alataucityinvest.kz/ru',
-    logo: `${TILDA}/tild3264-3336-4630-b331-306438366536/alatau_city_bank.png`,
+    logo: '/images/clients/alatau-city-bank.png',
   },
   {
     name: 'BCC',
     href: 'https://bcc.kz',
-    logo: `${TILDA}/tild3932-3234-4538-a265-626135346332/bcc.png`,
+    logo: '/images/clients/bcc.png',
   },
   {
     name: 'ForteBank',
     href: 'https://forte.kz',
-    logo: `${TILDA}/tild3931-6664-4930-b338-613433323937/forte.png`,
+    logo: '/images/clients/forte.png',
   },
   {
     name: 'Respect',
     href: 'https://respect.kz/ru',
-    logo: `${TILDA}/tild3065-3230-4837-b261-333939303330/recpect.png`,
+    logo: '/images/clients/recpect.png',
   },
   {
     name: 'Puma',
     href: 'https://puma.kz/',
-    logo: `${TILDA}/tild3534-3730-4762-a530-626462643163/puma-white-logo-imag.png`,
+    logo: '/images/clients/puma.png',
   },
   {
     name: 'Allur Auto',
     href: 'https://allur.kz',
-    logo: `${TILDA}/tild6361-3237-4430-a361-626632373261/Allur_logo_red_1.png`,
+    logo: '/images/clients/allur.png',
   },
   {
     name: 'Кинезио Доктор',
     href: 'https://kinesiodoctor.kz/',
-    logo: `${TILDA}/tild6463-3633-4665-b336-633130336434/nashivka_Kinesio_doc.png`,
+    logo: '/images/clients/kinesio-doctor.png',
   },
   {
     name: 'Henry Bonnar',
     href: 'https://kz.henrybonnar.com/',
-    logo: `${TILDA}/tild6334-3662-4337-b037-623036626639/Logo_H_Bonnar_2020_p.png`,
+    logo: '/images/clients/henry-bonnar.png',
   },
   {
     name: 'Dream Moments',
     href: 'https://dream-moments.kz/',
-    logo: `${TILDA}/tild3966-3130-4364-a566-663865336534/dream_moments.png`,
+    logo: '/images/clients/dream-moments.png',
   },
   {
     name: 'СтроимДом',
     href: 'https://stroimdom.kz',
-    logo: `${TILDA}/tild6337-3336-4665-a362-376536386539/_.png`,
+    logo: '/images/clients/stroimdom.png',
   },
   {
     name: 'MasterCarp',
     href: 'https://master-carp.kz/',
-    logo: `${TILDA}/tild3831-3836-4334-b666-613063353630/22.png`,
+    logo: '/images/clients/master-carp.png',
   },
 ];
 
@@ -126,51 +128,51 @@ export const clientsIntl: Client[] = [
   // Semrush и Enegix на текущем сайте идут без ссылок — сохраняем как есть
   {
     name: 'Semrush',
-    logo: `${TILDA}/tild6532-6235-4635-a432-646266313234/semrush.png`,
+    logo: '/images/clients/semrush.png',
   },
   {
     name: 'Higgsfield.ai',
     href: 'https://higgsfield.ai',
-    logo: `${TILDA}/tild6637-3034-4236-a564-306331346139/Higgsfield_Logo.png`,
+    logo: '/images/clients/higgsfield.png',
   },
   {
     name: 'Hepsiburada',
     href: 'https://hepsiburada.com',
-    logo: `${TILDA}/tild3739-6134-4564-b839-646239353833/hepsiburada.png`,
+    logo: '/images/clients/hepsiburada.png',
   },
   {
     name: 'Chevrolet',
     href: 'https://chevrolet.uz/',
-    logo: `${TILDA}/tild6664-3564-4366-b432-643432353137/1200px-Chevrolet_new.png`,
+    logo: '/images/clients/chevrolet.png',
   },
   {
     name: 'Atelier Wen',
     href: 'https://atelierwen.com',
-    logo: `${TILDA}/tild3666-6463-4732-a431-376166633634/atelier.png`,
+    logo: '/images/clients/atelier-wen.png',
   },
   {
     name: 'Enegix',
-    logo: `${TILDA}/tild3538-6461-4064-a161-336134373634/enegix.png`,
+    logo: '/images/clients/enegix.png',
   },
   {
     name: 'Pickthebank',
     href: 'https://pickthebank.eu',
-    logo: `${TILDA}/tild6335-3531-4930-b937-643561623063/pickthebank.png`,
+    logo: '/images/clients/pickthebank.png',
   },
   {
     name: 'Bay Fresh Flowers',
     href: 'https://bayfreshflowers.com',
-    logo: `${TILDA}/tild3962-6266-4434-a666-336136333334/bay_fresh_flowers.png`,
+    logo: '/images/clients/bay-fresh-flowers.png',
   },
   {
     name: 'AvtoElon',
     href: 'https://avtoelon.uz',
-    logo: `${TILDA}/tild3164-6135-4662-b963-316435643664/avtoelon.png`,
+    logo: '/images/clients/avtoelon.png',
   },
   {
     name: 'eyemunich',
     href: 'https://eyemunich.com',
-    logo: `${TILDA}/tild3262-3536-4261-b835-336564333936/__2025-10-18__133555.png`,
+    logo: '/images/clients/eyemunich.png',
   },
 ];
 
@@ -248,7 +250,7 @@ export const cases: CaseStudy[] = [
   {
     title: 'Master Carp · Карпфишинг',
     meta: 'E-commerce · Премиальный сегмент',
-    logo: `${TILDA}/tild3831-3836-4334-b666-613063353630/22.png`,
+    logo: '/images/clients/master-carp.png',
     kpis: ['Трафик: +270%', 'Заявки: +290%', 'ТОП-3: 45% запросов'],
     text: 'Интернет-магазин премиального карпфишинга. Исправили технические ошибки, перестроили структуру и связали SEO с сильным брендом.',
     tags: ['Техническое SEO', 'Стратегия', 'Контент и структура'],
@@ -289,7 +291,7 @@ export const founder = {
   // Дефис, а не тире, и «Казахстанские» с большой буквы — как на текущем сайте.
   title: 'Гайдар Максим - основатель агентства SEO Secrets',
   text: 'Из Алматы, в SEO с 2016 года. Главный эксперт и основатель агентства SEO Secrets, специализирующегося на стратегиях роста в SEO для бизнеса в Казахстане, США и Европе.',
-  photo: `${TILDA}/tild3034-3863-4963-b934-316261333036/IMG_6380.jpg`,
+  photo: '/images/founder/img-6380.jpg',
   /** strong — часть строки, выделенная жирным на текущем сайте */
   facts: [
     { text: '300+ успешно реализованных SEO-проектов' },
@@ -316,7 +318,7 @@ export const team: TeamMember[] = [
     role: 'Основатель SEO Secrets',
     experience: '9+ лет в SEO',
     href: '/team/max/',
-    photo: `${TILDA}/tild3636-6533-4561-b866-393636326432/Rectangle_152.jpg`,
+    photo: '/images/team/maxim.jpg',
     photoHover: `${TILDA}/tild3262-6561-4333-b165-333265376333/Rectangle_158.jpg`,
   },
   {
@@ -324,7 +326,7 @@ export const team: TeamMember[] = [
     role: 'Senior SEO специалист',
     experience: '9 лет в SEO',
     href: '/team/shamil/',
-    photo: `${TILDA}/tild3364-3335-4736-b262-623964613639/Rectangle_154.jpg`,
+    photo: '/images/team/shamil.jpg',
     photoHover: `${TILDA}/tild3165-6239-4339-b535-623566313562/Rectangle_160.jpg`,
   },
   {
@@ -332,7 +334,7 @@ export const team: TeamMember[] = [
     role: 'Senior SEO специалист',
     experience: '7 лет опыта в SEO',
     href: '/team/alexandr/',
-    photo: `${TILDA}/tild3566-3663-4066-b834-366264336364/Rectangle_156.jpg`,
+    photo: '/images/team/alexandr.jpg',
     photoHover: `${TILDA}/tild3061-6462-4330-b339-363730646332/Rectangle_164.jpg`,
   },
   {
@@ -340,7 +342,7 @@ export const team: TeamMember[] = [
     role: 'Senior SEO специалист',
     experience: '3+ лет практики SEO',
     href: '/team/george/',
-    photo: `${TILDA}/tild6339-3163-4431-a631-666435343832/Rectangle_157.jpg`,
+    photo: '/images/team/george.jpg',
     photoHover: `${TILDA}/tild3639-3531-4935-a262-623433393264/Rectangle_166.jpg`,
   },
   {
@@ -348,7 +350,7 @@ export const team: TeamMember[] = [
     role: 'UX/UI дизайнер',
     experience: 'более 3 лет в UX/UI',
     href: '/team/valeriya/',
-    photo: `${TILDA}/tild3663-6338-4265-b964-363334346432/Rectangle_153.jpg`,
+    photo: '/images/team/valeriya.jpg',
     photoHover: `${TILDA}/tild3461-3165-4435-a361-616632363661/Rectangle_159.jpg`,
   },
   {
@@ -356,7 +358,7 @@ export const team: TeamMember[] = [
     role: 'Junior SEO специалист',
     experience: '6 месяцев опыта в SEO',
     href: '/team/regina/',
-    photo: `${TILDA}/tild3965-3264-4839-a663-303961636162/Rectangle_155.jpg`,
+    photo: '/images/team/regina.jpg',
     photoHover: `${TILDA}/tild3638-6338-4363-b932-646433656161/Rectangle_165.jpg`,
   },
 ];
@@ -528,7 +530,7 @@ export const rankingFactors = [
  */
 export const geography = {
   title: 'География наших проектов',
-  image: `${TILDA}/tild6231-6532-4730-b663-346434383965/Group_127.svg`,
+  image: '/images/geo/map.svg',
   countries: [
     'Канада',
     'США',
@@ -638,8 +640,6 @@ export const toolsIntro = {
   lead: 'Наш стек — от краулинга и аналитики до визуализации и AI.',
 } as const;
 
-const SIMPLEICONS = 'https://cdn.simpleicons.org';
-
 /**
  * Начертание названия вместо картинки. На текущем сайте так оформлена
  * половина плиток: логотипа-файла нет, есть текст в фирменном цвете.
@@ -664,12 +664,13 @@ export type Tool = {
 };
 
 /*
- * Источники логотипов сняты из разметки текущего сайта: часть лежит на CDN
- * Тильды, часть тянется с cdn.simpleicons.org — это официальные бренд-иконки.
+ * Источники логотипов сняты из разметки текущего сайта.
  *
- * Цвет у simpleicons указан явно, вторым сегментом адреса. Без него сервис
- * отдаёт иконку цветом по умолчанию, и на тёмном фоне она может оказаться
- * невидимой — ровно это и происходило.
+ * У Semrush, GA4, GSC, BigQuery и OpenAI на сайте стоят адреса
+ * cdn.simpleicons.org, но сервис их больше не отдаёт — при выгрузке все пять
+ * вернули ошибку, остальные 40 файлов скачались. Значит эти плитки не грузятся
+ * и на текущем сайте. Показываем их начертанием, как восемь соседних.
+ * См. docs/AUDIT.md, п. 14.
  */
 export const tools: Tool[] = [
   {
@@ -680,7 +681,10 @@ export const tools: Tool[] = [
     name: 'Topvisor',
     wordmark: { text: 'Topvisor', color: '#2c89ff', size: 13 },
   },
-  { name: 'Semrush', logo: `${SIMPLEICONS}/semrush/ff642d` },
+  {
+    name: 'Semrush',
+    wordmark: { text: 'Semrush', color: '#ff642d', size: 15 },
+  },
   { name: 'Ahrefs', wordmark: { text: 'ahrefs', color: '#0a66ff', size: 17 } },
   {
     name: 'Netpeak Spider',
@@ -688,29 +692,32 @@ export const tools: Tool[] = [
   },
   {
     name: 'Screaming Frog',
-    logo: `${TILDA}/tild6236-6334-4630-b661-346430653130/screaming_frog_seo_s.png`,
+    logo: '/images/tools/screaming-frog.png',
   },
   {
     name: 'JetOctopus',
     wordmark: { text: 'JetOctopus', color: '#ffd100', size: 12 },
   },
-  { name: 'GA4', logo: `${SIMPLEICONS}/googleanalytics/e37400` },
-  { name: 'GSC', logo: `${SIMPLEICONS}/googlesearchconsole/458cf5` },
+  { name: 'GA4', wordmark: { text: 'GA4', color: '#e37400', size: 18 } },
+  { name: 'GSC', wordmark: { text: 'GSC', color: '#458cf5', size: 18 } },
   {
     name: 'Looker Studio',
-    logo: `${TILDA}/tild6335-6331-4334-b931-333865623532/looker-icon.svg`,
+    logo: '/images/tools/looker.svg',
   },
   {
     name: 'Tableau',
-    logo: `${TILDA}/tild3431-6235-4931-a566-613532323931/Tableau-Logo.png`,
+    logo: '/images/tools/tableau.png',
   },
   {
     name: 'Monday',
     wordmark: { text: 'Monday', color: '#eaeaea', size: 11, dots: true },
   },
-  { name: 'BigQuery', logo: `${SIMPLEICONS}/googlebigquery/669df6` },
+  {
+    name: 'BigQuery',
+    wordmark: { text: 'BigQuery', color: '#669df6', size: 14 },
+  },
   { name: 'SQL', wordmark: { text: 'SQL', color: '#d6d7db', size: 18 } },
-  { name: 'OpenAI', logo: `${SIMPLEICONS}/openai/ffffff` },
+  { name: 'OpenAI', wordmark: { text: 'OpenAI', color: '#ffffff', size: 16 } },
   {
     name: 'LLM Brand Monitor',
     wordmark: { text: 'LLM Brand Monitor', color: '#36e0ff', size: 10 },
@@ -724,5 +731,5 @@ export const tools: Tool[] = [
 export const impactExample = {
   label: 'Пример работы:',
   text: 'Абсолютно новый домен и новый сайт были сдвинуты с "мертвой точки" на 2-й месяц работ, а к ноябрю трафик из Google достигал ~500 кликов в день',
-  image: `${TILDA}/tild3461-3132-4565-a237-313831306366/noroot.png`,
+  image: '/images/impact/growth-chart.png',
 } as const;
