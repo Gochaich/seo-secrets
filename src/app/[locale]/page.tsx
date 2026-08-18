@@ -23,7 +23,13 @@ export default async function HomePage({
   setRequestLocale(locale);
 
   return (
-    <main>
+    /*
+      overflow-x-clip, а не overflow-hidden: clip не делает элемент
+      скролл-контейнером, поэтому фоновые пятна секций свободно перетекают
+      вверх и вниз через границы блоков и при этом не дают горизонтальной
+      прокрутки. Именно из-за hidden на секциях был виден стык.
+    */
+    <main className="overflow-x-clip">
       <Hero />
       <Clients />
       <WhatsAppCta className="pt-[30px] pb-[30px]" />

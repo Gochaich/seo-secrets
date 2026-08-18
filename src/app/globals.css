@@ -109,6 +109,18 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+/*
+ * Подстраховка для Safari старше 16: там нет overflow: clip, и main остаётся
+ * visible — фоновые пятна вылезли бы за правый край и дали горизонтальную
+ * прокрутку. В таком браузере возвращаем hidden: стык между блоками снова
+ * будет заметен, но это меньшее зло, чем едущая вбок страница.
+ */
+@supports not (overflow: clip) {
+  main {
+    overflow-x: hidden;
+  }
+}
+
 body {
   background: var(--color-bg);
   color: var(--color-ink);

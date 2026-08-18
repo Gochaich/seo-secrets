@@ -12,7 +12,7 @@ import { rankingFactors, rankingFactorsTitle } from '@content/ru/home';
  */
 export function RankingFactors() {
   return (
-    <section className="relative overflow-hidden py-20 md:py-24">
+    <section className="relative py-20 md:py-24">
       {/*
         Свечение собрано из трёх слоёв. Одним не выходит: приглушишь
         прозрачностью — блок выцветает, уберёшь прозрачность — жёлтое пятно

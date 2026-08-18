@@ -39,7 +39,7 @@ function Check() {
  */
 export function Founder() {
   return (
-    <section className="relative overflow-hidden py-20 md:py-24">
+    <section className="relative py-20 md:py-24">
       {/*
         Градиент для галочек. Один на секцию: у svg-градиента адресация по id,
         и дублировать одинаковый id в каждой галочке нельзя.
