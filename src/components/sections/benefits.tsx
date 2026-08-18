@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { benefits, benefitsTitle } from '@content/ru/home';
 
 /**
@@ -7,9 +6,14 @@ import { benefits, benefitsTitle } from '@content/ru/home';
  *
  * Из исходника: контейнер 1200px, две колонки, заголовок 34px с отступом
  * снизу 90px (45px на ≤960), отступы секции 60px сверху и снизу.
- * Цифры — шесть отдельных SVG, каждый свой.
  *
- * Колонка под иконку — 47px (40 + 7): у Тильды на текст остаётся ровно 513px,
+ * Номера пунктов на Tilda — шесть отдельных SVG, и у каждого свой viewBox:
+ * цифра занимает разную долю холста, поэтому в одинаковой рамке они выходили
+ * разного размера. Набираем цифры текстом: один шрифт, один кегль, минус
+ * шесть запросов к CDN. tabular-nums держит одинаковую ширину знака,
+ * чтобы колонка под номер не «дышала» от пункта к пункту.
+ *
+ * Колонка под номер — 47px (40 + 7): у Тильды на текст остаётся ровно 513px,
  * и строка «…где клиенты выбирают,» помещается впритык. Лишний пиксель ломает перенос.
  */
 export function Benefits() {
@@ -20,17 +24,15 @@ export function Benefits() {
           {benefitsTitle}
         </h2>
 
-        <ul className="grid gap-x-10 gap-y-[60px] md:grid-cols-2">
-          {benefits.map((item) => (
-            <li key={item.title} className="grid grid-cols-[40px_1fr] gap-x-[7px]">
-              <Image
-                src={item.icon}
-                alt=""
-                aria-hidden
-                width={40}
-                height={40}
-                className="h-10 w-10"
-              />
+        <ol className="grid gap-x-10 gap-y-[60px] md:grid-cols-2">
+          {benefits.map((item, index) => (
+            <li
+              key={item.title}
+              className="grid grid-cols-[40px_1fr] gap-x-[7px]"
+            >
+              <span className="text-accent-bright text-[30px] leading-7 font-bold tabular-nums">
+                {index + 1}
+              </span>
 
               <div>
                 <h3 className="mb-3 text-xl font-semibold">{item.title}</h3>
@@ -42,7 +44,7 @@ export function Benefits() {
               </div>
             </li>
           ))}
-        </ul>
+        </ol>
       </div>
     </section>
   );

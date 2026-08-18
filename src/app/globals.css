@@ -10,6 +10,8 @@
   --color-ink: #ffffff;
   --color-accent: #114be8;
   --color-accent-hover: #0b30d9;
+  /* Светлее основного: им набраны номера пунктов и подписи вроде «Пример работы» */
+  --color-accent-bright: #1e5bff;
   --color-cyan: #36e0ff;
   --color-yellow: #f5f04a;
 

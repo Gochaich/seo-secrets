@@ -10,7 +10,7 @@ export function ImpactExample() {
     <section className="py-[60px]">
       <div className="mx-auto grid max-w-[1200px] gap-8 px-5 md:grid-cols-2">
         <p className="pt-[30px] text-xl leading-[1.55]">
-          <strong className="font-bold text-[#1e5bff]">
+          <strong className="font-bold text-accent-bright">
             {impactExample.label}
           </strong>{' '}
           {impactExample.text}
