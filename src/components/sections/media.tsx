@@ -14,8 +14,17 @@ import { mediaArticles, mediaTitle, mediaVideos } from '@content/ru/home';
  */
 export function Media() {
   return (
-    <section className="py-20 md:py-24">
-      <div className="mx-auto w-full max-w-[1220px] px-5">
+    <section className="relative py-20 md:py-24">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute top-[8%] -left-[440px] h-[700px] w-[600px] rounded-full bg-[radial-gradient(circle,var(--color-yellow)_0%,var(--color-yellow)_30%,var(--color-green)_60%,transparent_80%)] opacity-85 blur-[100px]"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-[460px] -bottom-10 h-[1000px] w-[620px] rounded-[50%] bg-[radial-gradient(ellipse,var(--color-accent-bright)_0%,var(--color-accent)_44%,transparent_76%)] opacity-90 blur-[90px]"
+      />
+
+      <div className="relative mx-auto w-full max-w-[1220px] px-5">
         <h2 className="text-center text-3xl leading-tight font-extrabold text-balance md:text-[34px]">
           {mediaTitle}
         </h2>
