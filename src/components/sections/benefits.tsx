@@ -30,7 +30,7 @@ export function Benefits() {
               key={item.title}
               className="grid grid-cols-[40px_1fr] gap-x-[7px]"
             >
-              <span className="text-accent-bright text-[30px] leading-7 font-bold tabular-nums">
+              <span className="text-accent-bright -mt-[6px] text-[44px] leading-none font-bold tabular-nums">
                 {index + 1}
               </span>
 
