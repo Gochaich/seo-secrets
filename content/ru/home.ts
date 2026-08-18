@@ -23,6 +23,21 @@ export const hero = {
   },
 } as const;
 
+/**
+ * Кнопка WhatsApp между блоками — на текущем сайте это отдельная запись,
+ * повторяется на главной четыре раза. SVG шириной 291px.
+ */
+export const whatsappCta = {
+  image: `${TILDA}/tild3435-3665-4531-b062-636236643739/whatsapp.svg`,
+  label: 'Связаться в WhatsApp',
+} as const;
+
+export const clientsHeadings = {
+  title: 'Наши клиенты по SEO',
+  kz: 'Казахстанские клиенты',
+  intl: 'Наши клиенты в США и других странах',
+} as const;
+
 export type Client = {
   name: string;
   logo: string;
