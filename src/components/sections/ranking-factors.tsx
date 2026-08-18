@@ -13,13 +13,23 @@ import { rankingFactors, rankingFactorsTitle } from '@content/ru/home';
 export function RankingFactors() {
   return (
     <section className="relative overflow-hidden py-20 md:py-24">
+      {/*
+        Свечение собрано из трёх слоёв. Одним не выходит: приглушишь
+        прозрачностью — блок выцветает, уберёшь прозрачность — жёлтое пятно
+        забивает карточки. Поэтому широкий зелёный ореол задаёт объём,
+        жёлтое ядро даёт насыщенность, бирюза слева повторяет оригинал.
+      */}
       <div
         aria-hidden
-        className="pointer-events-none absolute top-[30%] left-1/2 h-[420px] w-[1100px] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(ellipse,var(--color-yellow)_0%,var(--color-yellow)_46%,var(--color-green)_72%,transparent_88%)] opacity-80 blur-[100px]"
+        className="pointer-events-none absolute top-[14%] left-1/2 h-[760px] w-[1400px] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(ellipse,var(--color-green)_0%,var(--color-green)_38%,transparent_74%)] opacity-85 blur-[110px]"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute top-[55%] -left-32 h-[340px] w-[440px] rounded-full bg-[radial-gradient(circle,var(--color-cyan)_0%,transparent_70%)] opacity-50 blur-[90px]"
+        className="pointer-events-none absolute top-[22%] left-1/2 h-[600px] w-[1150px] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(ellipse,var(--color-yellow)_0%,var(--color-yellow)_34%,transparent_72%)] blur-[90px]"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute top-[52%] -left-32 h-[360px] w-[460px] rounded-full bg-[radial-gradient(circle,var(--color-cyan)_0%,transparent_70%)] opacity-60 blur-[90px]"
       />
 
       <div className="relative mx-auto w-full max-w-[1060px] px-5">
@@ -41,11 +51,11 @@ export function RankingFactors() {
                 карточки он в две строки, у остальных в одну, а тексты под
                 ними на оригинале начинаются на одном уровне.
               */}
-              <h3 className="flex min-h-[52px] items-center justify-center text-[15px] leading-[1.5] font-bold">
+              <h3 className="flex min-h-11 items-center justify-center text-[15px] leading-[1.5] font-bold">
                 {factor.title}
               </h3>
 
-              <p className="text-muted mt-8 text-sm leading-[1.55]">
+              <p className="text-muted mt-5 text-sm leading-[1.45]">
                 {factor.text}
               </p>
             </li>
