@@ -10,10 +10,11 @@ import { cn } from '@/lib/utils';
  */
 
 const tones = {
-  blue: 'rgba(17, 75, 232, 0.42)',
-  cyan: 'rgba(54, 224, 255, 0.28)',
-  violet: 'rgba(94, 47, 214, 0.34)',
-  yellow: 'rgba(245, 240, 74, 0.16)',
+  blue: 'rgba(17, 75, 232, 0.5)',
+  cyan: 'rgba(54, 224, 255, 0.3)',
+  violet: 'rgba(104, 42, 232, 0.42)',
+  yellow: 'rgba(245, 240, 74, 0.22)',
+  green: 'rgba(39, 208, 97, 0.3)',
 } as const;
 
 type GlowProps = {
@@ -21,20 +22,25 @@ type GlowProps = {
   className?: string;
   /** Размер пятна, по умолчанию 620px */
   size?: number;
+  /** Сила размытия, по умолчанию 130px */
+  blur?: number;
 };
 
-export function Glow({ tone = 'blue', className, size = 620 }: GlowProps) {
+export function Glow({
+  tone = 'blue',
+  className,
+  size = 620,
+  blur = 150,
+}: GlowProps) {
   return (
     <div
       aria-hidden
-      className={cn(
-        'pointer-events-none absolute -z-10 blur-[100px]',
-        className,
-      )}
+      className={cn('pointer-events-none absolute -z-10', className)}
       style={{
         width: size,
         height: size,
-        background: `radial-gradient(circle, ${tones[tone]} 0%, transparent 68%)`,
+        filter: `blur(${blur}px)`,
+        background: `radial-gradient(circle, ${tones[tone]} 0%, transparent 66%)`,
       }}
     />
   );

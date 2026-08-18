@@ -5,11 +5,12 @@ import {
   Section,
   SectionTitle,
 } from '@/components/layout/container';
+import { Glow, GlowStage } from '@/components/layout/glow';
 import { cases, casesIntro, type CaseStudy } from '@content/ru/home';
 
 function CaseCard({ item }: { item: CaseStudy }) {
   return (
-    <article className="flex flex-col gap-3 rounded-card-lg border border-border bg-surface p-5">
+    <article className="flex flex-col gap-3 rounded-card-lg surface-card p-5">
       <div className="flex items-start justify-between gap-3">
         <div>
           <h3 className="text-base font-bold">{item.title}</h3>
@@ -71,18 +72,23 @@ function CaseCard({ item }: { item: CaseStudy }) {
 
 export function Cases() {
   return (
-    <Section>
-      <Container className="flex flex-col gap-9">
-        <div className="flex flex-col items-center gap-2 text-center">
-          <SectionTitle>Кейсы агентства SEO Secrets</SectionTitle>
-          <p className="text-[15px] text-muted">{casesIntro}</p>
-        </div>
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {cases.map((item) => (
-            <CaseCard key={item.title} item={item} />
-          ))}
-        </div>
-      </Container>
-    </Section>
+    <GlowStage>
+      <Glow tone="violet" className="-top-24 right-1/4" size={640} />
+      <Glow tone="blue" className="-bottom-40 -left-32" size={680} />
+
+      <Section>
+        <Container className="flex flex-col gap-9">
+          <div className="flex flex-col items-center gap-2 text-center">
+            <SectionTitle>Кейсы агентства SEO Secrets</SectionTitle>
+            <p className="text-[15px] text-muted">{casesIntro}</p>
+          </div>
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {cases.map((item) => (
+              <CaseCard key={item.title} item={item} />
+            ))}
+          </div>
+        </Container>
+      </Section>
+    </GlowStage>
   );
 }

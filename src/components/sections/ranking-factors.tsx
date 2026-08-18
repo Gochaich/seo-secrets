@@ -24,7 +24,7 @@ export function RankingFactors() {
             {rankingFactors.map((factor, index) => (
               <li
                 key={factor.title}
-                className="flex flex-col gap-3 rounded-card border border-border bg-surface p-6"
+                className="flex flex-col gap-3 rounded-card surface-card p-6"
               >
                 <span
                   aria-hidden

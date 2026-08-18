@@ -10,7 +10,7 @@ function Step({ step, index }: { step: ProcessStep; index: number }) {
   const List = step.list?.ordered ? 'ol' : 'ul';
 
   return (
-    <li className="grid gap-5 rounded-card-lg border border-border bg-surface p-6 md:grid-cols-[72px_1fr] md:p-8">
+    <li className="grid gap-5 rounded-card-lg surface-card p-6 md:grid-cols-[72px_1fr] md:p-8">
       <span
         aria-hidden
         className="font-mono text-4xl leading-none font-bold text-accent tabular-nums"

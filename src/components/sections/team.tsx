@@ -5,6 +5,7 @@ import {
   Section,
   SectionTitle,
 } from '@/components/layout/container';
+import { Glow, GlowStage } from '@/components/layout/glow';
 import { team, type TeamMember } from '@content/ru/home';
 
 function TeamCard({ member }: { member: TeamMember }) {
@@ -50,17 +51,22 @@ function TeamCard({ member }: { member: TeamMember }) {
 
 export function Team() {
   return (
-    <Section>
-      <Container className="flex flex-col gap-12">
-        <SectionTitle className="text-center">
-          Команда экспертов SEO Secrets
-        </SectionTitle>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-10">
-          {team.map((member) => (
-            <TeamCard key={member.href} member={member} />
-          ))}
-        </div>
-      </Container>
-    </Section>
+    <GlowStage>
+      <Glow tone="blue" className="top-1/4 -right-40" size={700} />
+      <Glow tone="cyan" className="-bottom-24 left-0" size={520} />
+
+      <Section>
+        <Container className="flex flex-col gap-12">
+          <SectionTitle className="text-center">
+            Команда экспертов SEO Secrets
+          </SectionTitle>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-10">
+            {team.map((member) => (
+              <TeamCard key={member.href} member={member} />
+            ))}
+          </div>
+        </Container>
+      </Section>
+    </GlowStage>
   );
 }
