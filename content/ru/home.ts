@@ -638,35 +638,60 @@ export const toolsIntro = {
   lead: 'Наш стек — от краулинга и аналитики до визуализации и AI.',
 } as const;
 
-export type Tool = {
-  name: string;
-  /** Логотип с CDN Тильды. Есть не у всех — см. docs/AUDIT.md, п. 14 */
-  logo?: string;
-  /** Начертание на плитке, если оно отличается от названия: «ahrefs» против «Ahrefs» */
-  wordmark?: string;
-  /**
-   * Фирменный цвет сервиса. Половина плиток на текущем сайте оформлена
-   * именно так — названием в цвете бренда, а не картинкой.
-   *
-   * Эти цвета лежат здесь, а не в токенах, сознательно: они чужие,
-   * и наша палитра не должна от них зависеть.
-   */
-  color?: string;
+const SIMPLEICONS = 'https://cdn.simpleicons.org';
+
+/**
+ * Начертание названия вместо картинки. На текущем сайте так оформлена
+ * половина плиток: логотипа-файла нет, есть текст в фирменном цвете.
+ *
+ * size — размер на экране в px. В исходнике текст лежит в SVG с viewBox
+ * вдвое больше самого элемента, поэтому экранный кегль там ровно вполовину
+ * от указанного в разметке.
+ */
+export type ToolWordmark = {
+  text: string;
+  /** Чужой бренд-цвет. Держим здесь, а не в токенах: наша палитра от него не зависит */
+  color: string;
+  size: number;
+  /** Три цветных кружка перед названием — только у Monday */
+  dots?: boolean;
 };
 
+export type Tool = {
+  name: string;
+  logo?: string;
+  wordmark?: ToolWordmark;
+};
+
+/*
+ * Источники логотипов сняты из разметки текущего сайта: часть лежит на CDN
+ * Тильды, часть тянется с cdn.simpleicons.org — это официальные бренд-иконки.
+ */
 export const tools: Tool[] = [
-  { name: 'Serpstat', color: '#2f7de1' },
-  { name: 'Topvisor', color: '#3d6fd6' },
-  { name: 'Semrush', color: '#ff642d' },
-  { name: 'Ahrefs', wordmark: 'ahrefs', color: '#2e7ee8' },
-  { name: 'Netpeak Spider', color: '#21a67a' },
+  {
+    name: 'Serpstat',
+    wordmark: { text: 'Serpstat', color: '#1ba0ff', size: 15 },
+  },
+  {
+    name: 'Topvisor',
+    wordmark: { text: 'Topvisor', color: '#2c89ff', size: 13 },
+  },
+  { name: 'Semrush', logo: `${SIMPLEICONS}/semrush` },
+  { name: 'Ahrefs', wordmark: { text: 'ahrefs', color: '#0a66ff', size: 17 } },
+  {
+    name: 'Netpeak Spider',
+    wordmark: { text: 'Netpeak Spider', color: '#00a8a8', size: 12 },
+  },
   {
     name: 'Screaming Frog',
     logo: `${TILDA}/tild6236-6334-4630-b661-346430653130/screaming_frog_seo_s.png`,
   },
-  { name: 'JetOctopus', color: '#e8b93a' },
-  { name: 'GA4', color: '#f4a03c' },
-  { name: 'GSC', color: '#4285f4' },
+  {
+    name: 'JetOctopus',
+    wordmark: { text: 'JetOctopus', color: '#ffd100', size: 12 },
+  },
+  { name: 'GA4', logo: `${SIMPLEICONS}/googleanalytics` },
+  { name: 'GSC', logo: `${SIMPLEICONS}/googlesearchconsole` },
   {
     name: 'Looker Studio',
     logo: `${TILDA}/tild6335-6331-4334-b931-333865623532/looker-icon.svg`,
@@ -675,11 +700,19 @@ export const tools: Tool[] = [
     name: 'Tableau',
     logo: `${TILDA}/tild3431-6235-4931-a566-613532323931/Tableau-Logo.png`,
   },
-  { name: 'Monday', color: '#ff3d57' },
-  { name: 'BigQuery', color: '#4285f4' },
-  { name: 'SQL', color: '#ffffff' },
-  { name: 'OpenAI', color: '#ffffff' },
-  { name: 'LLM Brand Monitor', color: '#2f7de1' },
+  {
+    name: 'Monday',
+    wordmark: { text: 'Monday', color: '#eaeaea', size: 11, dots: true },
+  },
+  { name: 'BigQuery', logo: `${SIMPLEICONS}/googlebigquery` },
+  { name: 'SQL', wordmark: { text: 'SQL', color: '#d6d7db', size: 18 } },
+  // На текущем сайте иконка запрашивается без цвета и не видна на тёмном фоне.
+  // Запрашиваем белую — см. docs/AUDIT.md, п. 14.
+  { name: 'OpenAI', logo: `${SIMPLEICONS}/openai/white` },
+  {
+    name: 'LLM Brand Monitor',
+    wordmark: { text: 'LLM Brand Monitor', color: '#36e0ff', size: 10 },
+  },
 ];
 
 /**

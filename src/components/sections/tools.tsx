@@ -1,5 +1,50 @@
 import Image from 'next/image';
-import { tools, toolsIntro } from '@content/ru/home';
+import { tools, toolsIntro, type Tool } from '@content/ru/home';
+
+/** Три кружка перед названием Monday — часть их логотипа */
+const MONDAY_DOTS = ['#f62e36', '#ffad00', '#00c875'];
+
+function ToolMark({ tool }: { tool: Tool }) {
+  if (tool.logo) {
+    return (
+      <Image
+        src={tool.logo}
+        alt=""
+        aria-hidden
+        width={90}
+        height={44}
+        /*
+         * unoptimized: часть иконок приходит с cdn.simpleicons.org без
+         * расширения в адресе, и оптимизатор Next такие SVG блокирует.
+         * Оптимизировать тут всё равно нечего — это векторные значки.
+         */
+        unoptimized
+        className="max-h-11 w-auto max-w-[90px] object-contain"
+      />
+    );
+  }
+
+  if (!tool.wordmark) return null;
+
+  return (
+    <span aria-hidden className="flex items-center gap-1.5">
+      {tool.wordmark.dots &&
+        MONDAY_DOTS.map((dot) => (
+          <span
+            key={dot}
+            className="h-2 w-2 rounded-full"
+            style={{ backgroundColor: dot }}
+          />
+        ))}
+      <span
+        className="font-extrabold whitespace-nowrap"
+        style={{ color: tool.wordmark.color, fontSize: tool.wordmark.size }}
+      >
+        {tool.wordmark.text}
+      </span>
+    </span>
+  );
+}
 
 /**
  * «SEO и AI SEO инструменты, которыми мы пользуемся»: 16 плиток по 6 в ряд.
@@ -8,9 +53,9 @@ import { tools, toolsIntro } from '@content/ru/home';
  * четыре плитки, они центрируются сдвигом на колонку: при шести колонках
  * четыре по центру оставляют ровно по одной свободной с каждой стороны.
  *
- * Часть плиток на текущем сайте — картинки, часть — название в фирменном
- * цвете сервиса. Логотипы, адресов которых у нас нет, показываются вторым
- * способом; какие именно — в docs/AUDIT.md, п. 14.
+ * У восьми инструментов на плитке картинка, у восьми — название в фирменном
+ * цвете. Это не наш выбор, а разметка текущего сайта: у половины сервисов
+ * там просто нет файла логотипа.
  */
 export function Tools() {
   return (
@@ -33,24 +78,7 @@ export function Tools() {
               }`}
             >
               <span className="flex h-11 items-center justify-center">
-                {tool.logo ? (
-                  <Image
-                    src={tool.logo}
-                    alt=""
-                    aria-hidden
-                    width={44}
-                    height={44}
-                    className="h-11 w-auto object-contain"
-                  />
-                ) : (
-                  <span
-                    aria-hidden
-                    className="text-sm font-bold"
-                    style={{ color: tool.color }}
-                  >
-                    {tool.wordmark ?? tool.name}
-                  </span>
-                )}
+                <ToolMark tool={tool} />
               </span>
 
               <span className="text-sm leading-[1.3]">{tool.name}</span>

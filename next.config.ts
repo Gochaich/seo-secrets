@@ -19,6 +19,8 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       { protocol: 'https', hostname: 'static.tildacdn.pro' },
       { protocol: 'https', hostname: 'thb.tildacdn.pro' },
+      // Официальные бренд-иконки инструментов — так же, как на текущем сайте
+      { protocol: 'https', hostname: 'cdn.simpleicons.org' },
     ],
   },
 
