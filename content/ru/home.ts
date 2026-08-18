@@ -666,6 +666,10 @@ export type Tool = {
 /*
  * Источники логотипов сняты из разметки текущего сайта: часть лежит на CDN
  * Тильды, часть тянется с cdn.simpleicons.org — это официальные бренд-иконки.
+ *
+ * Цвет у simpleicons указан явно, вторым сегментом адреса. Без него сервис
+ * отдаёт иконку цветом по умолчанию, и на тёмном фоне она может оказаться
+ * невидимой — ровно это и происходило.
  */
 export const tools: Tool[] = [
   {
@@ -676,7 +680,7 @@ export const tools: Tool[] = [
     name: 'Topvisor',
     wordmark: { text: 'Topvisor', color: '#2c89ff', size: 13 },
   },
-  { name: 'Semrush', logo: `${SIMPLEICONS}/semrush` },
+  { name: 'Semrush', logo: `${SIMPLEICONS}/semrush/ff642d` },
   { name: 'Ahrefs', wordmark: { text: 'ahrefs', color: '#0a66ff', size: 17 } },
   {
     name: 'Netpeak Spider',
@@ -690,8 +694,8 @@ export const tools: Tool[] = [
     name: 'JetOctopus',
     wordmark: { text: 'JetOctopus', color: '#ffd100', size: 12 },
   },
-  { name: 'GA4', logo: `${SIMPLEICONS}/googleanalytics` },
-  { name: 'GSC', logo: `${SIMPLEICONS}/googlesearchconsole` },
+  { name: 'GA4', logo: `${SIMPLEICONS}/googleanalytics/e37400` },
+  { name: 'GSC', logo: `${SIMPLEICONS}/googlesearchconsole/458cf5` },
   {
     name: 'Looker Studio',
     logo: `${TILDA}/tild6335-6331-4334-b931-333865623532/looker-icon.svg`,
@@ -704,11 +708,9 @@ export const tools: Tool[] = [
     name: 'Monday',
     wordmark: { text: 'Monday', color: '#eaeaea', size: 11, dots: true },
   },
-  { name: 'BigQuery', logo: `${SIMPLEICONS}/googlebigquery` },
+  { name: 'BigQuery', logo: `${SIMPLEICONS}/googlebigquery/669df6` },
   { name: 'SQL', wordmark: { text: 'SQL', color: '#d6d7db', size: 18 } },
-  // На текущем сайте иконка запрашивается без цвета и не видна на тёмном фоне.
-  // Запрашиваем белую — см. docs/AUDIT.md, п. 14.
-  { name: 'OpenAI', logo: `${SIMPLEICONS}/openai/white` },
+  { name: 'OpenAI', logo: `${SIMPLEICONS}/openai/ffffff` },
   {
     name: 'LLM Brand Monitor',
     wordmark: { text: 'LLM Brand Monitor', color: '#36e0ff', size: 10 },
