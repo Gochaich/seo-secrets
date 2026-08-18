@@ -35,11 +35,28 @@ function Check() {
  *
  * Цена «Малого бизнеса» — 300 000 ₸, а не 250 000, как на текущем сайте:
  * там она указана двумя разными числами. Решение владельца, docs/AUDIT.md, п. 1.
+ *
+ * Фоновые пятна: бирюзовое с жёлто-зелёным подпалом слева и крупное синее
+ * справа. Центры вынесены далеко за экран — на оригинале видны только полосой
+ * у самого края.
  */
 export function Pricing() {
   return (
-    <section className="py-20 md:py-24">
-      <div className="mx-auto w-full max-w-[1068px] px-5">
+    <section className="relative py-20 md:py-24">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute top-[8%] -left-[420px] h-[620px] w-[560px] rounded-full bg-[radial-gradient(circle,var(--color-cyan)_0%,transparent_70%)] opacity-70 blur-[100px]"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute top-[42%] -left-[440px] h-[480px] w-[540px] rounded-full bg-[radial-gradient(circle,var(--color-yellow)_0%,var(--color-green)_45%,transparent_76%)] opacity-70 blur-[100px]"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute top-[10%] -right-[440px] h-[900px] w-[600px] rounded-[50%] bg-[radial-gradient(ellipse,var(--color-accent-bright)_0%,var(--color-accent)_44%,transparent_76%)] opacity-90 blur-[90px]"
+      />
+
+      <div className="relative mx-auto w-full max-w-[1068px] px-5">
         <h2 className="text-center text-3xl leading-tight font-extrabold text-balance md:text-[34px]">
           {pricingIntro.title}
         </h2>
