@@ -638,24 +638,49 @@ export const toolsIntro = {
   lead: 'Наш стек — от краулинга и аналитики до визуализации и AI.',
 } as const;
 
-export const tools = [
-  'Serpstat',
-  'Topvisor',
-  'Semrush',
-  'Ahrefs',
-  'Netpeak Spider',
-  'Screaming Frog',
-  'JetOctopus',
-  'GA4',
-  'GSC',
-  'Looker Studio',
-  'Tableau',
-  'Monday',
-  'BigQuery',
-  'SQL',
-  'OpenAI',
-  'LLM Brand Monitor',
-] as const;
+export type Tool = {
+  name: string;
+  /** Логотип с CDN Тильды. Есть не у всех — см. docs/AUDIT.md, п. 14 */
+  logo?: string;
+  /** Начертание на плитке, если оно отличается от названия: «ahrefs» против «Ahrefs» */
+  wordmark?: string;
+  /**
+   * Фирменный цвет сервиса. Половина плиток на текущем сайте оформлена
+   * именно так — названием в цвете бренда, а не картинкой.
+   *
+   * Эти цвета лежат здесь, а не в токенах, сознательно: они чужие,
+   * и наша палитра не должна от них зависеть.
+   */
+  color?: string;
+};
+
+export const tools: Tool[] = [
+  { name: 'Serpstat', color: '#2f7de1' },
+  { name: 'Topvisor', color: '#3d6fd6' },
+  { name: 'Semrush', color: '#ff642d' },
+  { name: 'Ahrefs', wordmark: 'ahrefs', color: '#2e7ee8' },
+  { name: 'Netpeak Spider', color: '#21a67a' },
+  {
+    name: 'Screaming Frog',
+    logo: `${TILDA}/tild6236-6334-4630-b661-346430653130/screaming_frog_seo_s.png`,
+  },
+  { name: 'JetOctopus', color: '#e8b93a' },
+  { name: 'GA4', color: '#f4a03c' },
+  { name: 'GSC', color: '#4285f4' },
+  {
+    name: 'Looker Studio',
+    logo: `${TILDA}/tild6335-6331-4334-b931-333865623532/looker-icon.svg`,
+  },
+  {
+    name: 'Tableau',
+    logo: `${TILDA}/tild3431-6235-4931-a566-613532323931/Tableau-Logo.png`,
+  },
+  { name: 'Monday', color: '#ff3d57' },
+  { name: 'BigQuery', color: '#4285f4' },
+  { name: 'SQL', color: '#ffffff' },
+  { name: 'OpenAI', color: '#ffffff' },
+  { name: 'LLM Brand Monitor', color: '#2f7de1' },
+];
 
 /**
  * Блок «Пример работы» — идёт сразу после «Как SEO влияет на бизнес».

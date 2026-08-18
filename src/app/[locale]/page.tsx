@@ -14,10 +14,11 @@ import { Media } from '@/components/sections/media';
 import { LeadCost } from '@/components/sections/lead-cost';
 import { Pricing } from '@/components/sections/pricing';
 import { Testimonials } from '@/components/sections/testimonials';
+import { Tools } from '@/components/sections/tools';
 
 /**
  * Главная. Собирается блок за блоком по скриншотам текущего сайта.
- * Готово: первый экран, клиенты, влияние SEO, пример работы, кейсы, основатель, команда, этапы работы, факторы ранжирования, география, СМИ, цена лида, тарифы, видео-отзывы.
+ * Готово: первый экран, клиенты, влияние SEO, пример работы, кейсы, основатель, команда, этапы работы, факторы ранжирования, география, СМИ, цена лида, тарифы, видео-отзывы, инструменты.
  */
 export default async function HomePage({
   params,
@@ -50,6 +51,7 @@ export default async function HomePage({
       <LeadCost />
       <Pricing />
       <Testimonials />
+      <Tools />
     </main>
   );
 }
