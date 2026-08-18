@@ -6,10 +6,11 @@ import { Benefits } from '@/components/sections/benefits';
 import { ImpactExample } from '@/components/sections/impact-example';
 import { Cases } from '@/components/sections/cases';
 import { Founder } from '@/components/sections/founder';
+import { Team } from '@/components/sections/team';
 
 /**
  * Главная. Собирается блок за блоком по скриншотам текущего сайта.
- * Готово: первый экран, клиенты, влияние SEO, пример работы, кейсы, основатель.
+ * Готово: первый экран, клиенты, влияние SEO, пример работы, кейсы, основатель, команда.
  */
 export default async function HomePage({
   params,
@@ -28,6 +29,7 @@ export default async function HomePage({
       <ImpactExample />
       <Cases />
       <Founder />
+      <Team />
     </main>
   );
 }
