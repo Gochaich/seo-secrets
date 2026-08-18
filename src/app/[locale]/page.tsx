@@ -9,10 +9,11 @@ import { Founder } from '@/components/sections/founder';
 import { Team } from '@/components/sections/team';
 import { Process } from '@/components/sections/process';
 import { RankingFactors } from '@/components/sections/ranking-factors';
+import { Geography } from '@/components/sections/geography';
 
 /**
  * Главная. Собирается блок за блоком по скриншотам текущего сайта.
- * Готово: первый экран, клиенты, влияние SEO, пример работы, кейсы, основатель, команда, этапы работы, факторы ранжирования.
+ * Готово: первый экран, клиенты, влияние SEO, пример работы, кейсы, основатель, команда, этапы работы, факторы ранжирования, география.
  */
 export default async function HomePage({
   params,
@@ -40,6 +41,7 @@ export default async function HomePage({
       <Team />
       <Process />
       <RankingFactors />
+      <Geography />
     </main>
   );
 }
