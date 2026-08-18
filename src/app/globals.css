@@ -1,77 +1,21 @@
 @import "tailwindcss";
 
 /*
- * Дизайн-система SEO Secrets.
- * Значения сняты с текущего сайта на Tilda — цвета и шрифт остаются узнаваемыми.
- *
- * ПРАВИЛО: цвета, шрифты и радиусы задаются ТОЛЬКО здесь.
- * В компонентах используем bg-surface, text-muted, text-accent и т.п.
- * Произвольные значения вида bg-[#114be8] не использовать: из-за них
- * на сайте заводится по пять оттенков одного синего.
- *
- * Сайт тёмный по замыслу — светлой темы нет, и это осознанно.
+ * Токены. Значения сняты из CSS текущего сайта — это факты, а не мои догадки,
+ * поэтому оставлены. Всё остальное оформление собирается заново, по скриншотам.
  */
 @theme {
-  /* Поверхности */
   --color-bg: #1e1e1e;
   --color-surface: #232323;
-  --color-surface-2: #2a2a2a;
-  --color-border: rgba(255, 255, 255, 0.08);
-  --color-border-strong: rgba(255, 255, 255, 0.16);
-
-  /* Текст */
   --color-ink: #ffffff;
-  --color-muted: #cfcfcf;
-  --color-subtle: #9b9d9f;
-
-  /* Фирменный синий — кнопки, ссылки, активные состояния */
   --color-accent: #114be8;
   --color-accent-hover: #0b30d9;
-  --color-accent-ink: #ffffff;
-
-  /* Дополнительные акценты: подсветка цифр и результатов */
   --color-cyan: #36e0ff;
   --color-yellow: #f5f04a;
-  --color-success: #27d061;
 
-  /* Шрифты. Montserrat — фирменный, подключается в layout */
-  --font-sans: var(--font-montserrat), system-ui, -apple-system, "Segoe UI",
-    Roboto, Arial, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-
-  /* Радиусы */
-  --radius-btn: 100px;
-  --radius-card: 12px;
-  --radius-card-lg: 22px;
-}
-
-/* Градиент для акцентных элементов — снят с карточек кейсов на Tilda */
-@utility bg-brand-gradient {
-  background-image: linear-gradient(135deg, #0018f0, #00b4f0, #00c2ea);
-}
-
-/*
- * Поверхность карточки. Плоская заливка выглядит мёртвой на тёмном фоне,
- * поэтому: лёгкий градиент сверху вниз, светлая грань по верхнему краю
- * (будто свет падает сверху) и мягкая тень снизу, отделяющая карточку от фона.
- */
-@utility surface-card {
-  background-image: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.07) 0%,
-    rgba(255, 255, 255, 0.02) 100%
-  );
-  background-color: rgba(35, 35, 35, 0.72);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    0 24px 48px -32px rgba(0, 0, 0, 0.95);
-  backdrop-filter: blur(6px);
-}
-
-@utility surface-card-hover {
-  border-color: rgba(255, 255, 255, 0.18);
-  background-color: rgba(42, 42, 42, 0.82);
+  --font-sans:
+    var(--font-montserrat), system-ui, -apple-system, 'Segoe UI', Roboto, Arial,
+    sans-serif;
 }
 
 html {
@@ -79,31 +23,8 @@ html {
 }
 
 body {
-  /* Ровный чёрный делает страницу плоской — добавляем едва заметную глубину */
-  background-color: var(--color-bg);
-  background-image:
-    radial-gradient(
-      110% 60% at 50% 0%,
-      rgba(17, 75, 232, 0.06) 0%,
-      transparent 60%
-    ),
-    radial-gradient(
-      80% 50% at 100% 40%,
-      rgba(54, 224, 255, 0.03) 0%,
-      transparent 60%
-    );
-  background-attachment: fixed;
+  background: var(--color-bg);
   color: var(--color-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
-}
-
-::selection {
-  background: var(--color-accent);
-  color: var(--color-accent-ink);
-}
-
-:focus-visible {
-  outline: 2px solid var(--color-cyan);
-  outline-offset: 2px;
 }
