@@ -609,11 +609,14 @@ export type Testimonial = {
   youtubeId: string;
 };
 
+export const testimonialsTitle = 'Видео-отзывы клиентов';
+
+/* Тексты дословные: «увеличило» и отсутствие точки в третьем — как на сайте */
 export const testimonials: Testimonial[] = [
   {
     name: 'Kriger.kz · Швейная компания',
     description:
-      'Как SEO-стратегия усилила видимость сайта и увеличила поток заявок.',
+      'Как SEO-стратегия усилила видимость сайта и увеличило поток заявок.',
     youtubeId: 'F_ZRPAbvx4o',
   },
   {
@@ -625,7 +628,7 @@ export const testimonials: Testimonial[] = [
   {
     name: 'KinesioDoctor · Клиника реабилитации травм',
     description:
-      'Как благодаря SEO сайт начал стабильно приносить новых пациентов и вырос в поисковой выдаче.',
+      'Как благодаря SEO сайт начал стабильно приносить новых пациентов и вырос в поисковой выдаче',
     youtubeId: 'WbrnvMpQ57k',
   },
 ];
