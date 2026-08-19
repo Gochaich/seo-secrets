@@ -16,6 +16,9 @@ const socials = [
 /**
  * Подвал: слева логотип, соцсети и копирайт, справа меню.
  *
+ * Фон светлее страницы: тот же surface, что у карточек. Отдельный токен
+ * заводить не стал — оттенок уже есть в системе.
+ *
  * Иконки соцсетей белые, а глиф внутри вырезан насквозь — сквозь него
  * виден фон подвала. В шапке те же иконки идут наоборот, тёмным по светлому.
  *
@@ -27,8 +30,14 @@ const socials = [
  */
 export function SiteFooter() {
   return (
-    <footer className="border-border bg-bg mt-auto border-t">
-      <div className="mx-auto grid w-full max-w-[1060px] gap-10 px-5 py-12 md:grid-cols-[300px_1fr]">
+    <footer className="border-border bg-surface mt-auto border-t">
+      {/*
+        Содержимое прижато к левому краю, а не центрировано: колонка с
+        логотипом начинается там же, где начинается контент страницы.
+        Первая колонка ровно 300px и без зазора — меню на оригинале стоит
+        вплотную к этой границе.
+      */}
+      <div className="grid w-full gap-y-10 px-10 py-12 md:grid-cols-[300px_1fr] md:gap-x-0">
         <div>
           <Link href="/" aria-label={site.name} className="inline-block">
             <Image
