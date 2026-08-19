@@ -68,7 +68,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${montserrat.variable} ${inter.variable} h-full antialiased`}
+      className={`${montserrat.variable} ${inter.variable} h-full scroll-smooth antialiased`}
     >
       <body className="flex min-h-full flex-col">
         <NextIntlClientProvider>

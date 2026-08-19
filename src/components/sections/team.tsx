@@ -5,8 +5,9 @@ import { team } from '@content/ru/home';
 /**
  * «Команда экспертов SEO Secrets»: шесть карточек 3x2.
  *
- * Ширина содержимого 1100px — как на текущем сайте, там этот блок уже
- * остальных. Карточка 340x422, зазор 40px по обеим осям.
+ * Значения взяты из CSS текущего сайта (reference/html), а не подобраны
+ * по скриншоту: содержимое 1100px, зазор 40px по вертикали и 42px
+ * по горизонтали, пропорция снимка 384x476.
  *
  * У каждого сотрудника на Tilda два снимка: обычный и для наведения.
  * Второй лежит поверх первого и проявляется по opacity — так подмена
@@ -23,12 +24,12 @@ export function Team() {
           Команда экспертов SEO Secrets
         </h2>
 
-        <ul className="mt-[60px] grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-[50px] grid gap-x-[42px] gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
           {team.map((member) => (
             <li key={member.href}>
               <Link
                 href={member.href}
-                className="group relative block aspect-[340/422] overflow-hidden"
+                className="group relative block aspect-[384/476] overflow-hidden"
               >
                 <Image
                   src={member.photo}
@@ -47,15 +48,17 @@ export function Team() {
                 />
 
                 {/* Затемнение снизу: без него подписи теряются на светлом фоне снимка */}
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/55 to-transparent px-[18px] pt-20 pb-5">
-                  <h3 className="text-[17px] font-bold">{member.name}</h3>
-                  <p className="text-[13px] leading-[22px] text-white/75">
+                <div className="absolute inset-0 flex flex-col justify-end bg-[linear-gradient(to_top,rgba(0,0,0,0.6)_0%,rgba(0,0,0,0.35)_22%,rgba(0,0,0,0.12)_44%,rgba(0,0,0,0)_70%)] px-[18px] pb-4">
+                  <h3 className="mb-1.5 text-[18px] leading-[1.15] font-bold">
+                    {member.name}
+                  </h3>
+                  <p className="mb-[5px] text-[13px] leading-[1.3] text-white/[0.88]">
                     {member.role}
                   </p>
-                  <p className="text-[13px] leading-[22px] text-white/75">
+                  <p className="mb-2 text-[13px] leading-[1.3] text-white/[0.88]">
                     {member.experience}
                   </p>
-                  <span className="mt-2 inline-block text-[13px] font-bold">
+                  <span className="inline-block origin-left text-[13px] leading-[1.3] font-bold transition-transform duration-200 group-hover:scale-[1.06]">
                     Подробнее
                   </span>
                 </div>
