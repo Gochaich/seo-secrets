@@ -8,8 +8,7 @@ import {
 } from '@/components/icons/social';
 import { contacts, mainNav, site } from '@/lib/site';
 
-const LOGO =
-  'https://static.tildacdn.pro/tild6134-6133-4735-b033-616565346139/seo_1.png';
+const LOGO = '/images/brand/seo-secrets-logo.png';
 
 const socials = [
   { label: 'WhatsApp', href: contacts.whatsapp, Icon: WhatsAppIcon },

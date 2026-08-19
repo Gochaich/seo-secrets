@@ -2,13 +2,10 @@
  * Тексты главной страницы.
  * Перенесены с seo-secrets.kz дословно — переписывание не входит в переезд.
  *
- * Картинки почти все переехали в /public/images. На CDN Тильды остались
- * 11 файлов: их не было в карте выгрузки, адреса добавлены в
- * scripts/assets.map.json. После следующего запуска npm run fetch:assets
- * они тоже станут локальными и константа TILDA уйдёт. См. docs/AUDIT.md, п. 10.
+ * Все картинки лежат в /public/images и выгружаются туда автоматически:
+ * список адресов в scripts/assets.map.json, качает их GitHub Actions.
+ * Внешних CDN в путях больше нет. См. docs/AUDIT.md, п. 10.
  */
-
-const TILDA = 'https://static.tildacdn.pro';
 
 export const hero = {
   title: 'SEO продвижение от Алматинского агентства SEO Secrets',
@@ -20,7 +17,7 @@ export const hero = {
   image: '/images/hero/component-4.png',
   /** Кнопка на текущем сайте — готовый SVG шириной 240px */
   cta: {
-    image: `${TILDA}/tild6537-6534-4263-a532-653536663538/Group_63.svg`,
+    image: '/images/hero/cta-whatsapp.svg',
     label: 'Связаться в WhatsApp',
   },
 } as const;
@@ -30,7 +27,7 @@ export const hero = {
  * повторяется на главной четыре раза. SVG шириной 291px.
  */
 export const whatsappCta = {
-  image: `${TILDA}/tild3435-3665-4531-b062-636236643739/whatsapp.svg`,
+  image: '/images/ui/whatsapp-cta.svg',
   label: 'Связаться в WhatsApp',
 } as const;
 
@@ -319,7 +316,7 @@ export const team: TeamMember[] = [
     experience: '9+ лет в SEO',
     href: '/team/max/',
     photo: '/images/team/maxim.jpg',
-    photoHover: `${TILDA}/tild3262-6561-4333-b165-333265376333/Rectangle_158.jpg`,
+    photoHover: '/images/team/maxim-hover.jpg',
   },
   {
     name: 'Шамиль Ахматшаев',
@@ -327,7 +324,7 @@ export const team: TeamMember[] = [
     experience: '9 лет в SEO',
     href: '/team/shamil/',
     photo: '/images/team/shamil.jpg',
-    photoHover: `${TILDA}/tild3165-6239-4339-b535-623566313562/Rectangle_160.jpg`,
+    photoHover: '/images/team/shamil-hover.jpg',
   },
   {
     name: 'Александр Суворов',
@@ -335,7 +332,7 @@ export const team: TeamMember[] = [
     experience: '7 лет опыта в SEO',
     href: '/team/alexandr/',
     photo: '/images/team/alexandr.jpg',
-    photoHover: `${TILDA}/tild3061-6462-4330-b339-363730646332/Rectangle_164.jpg`,
+    photoHover: '/images/team/alexandr-hover.jpg',
   },
   {
     name: 'Георгий Штыренко',
@@ -343,7 +340,7 @@ export const team: TeamMember[] = [
     experience: '3+ лет практики SEO',
     href: '/team/george/',
     photo: '/images/team/george.jpg',
-    photoHover: `${TILDA}/tild3639-3531-4935-a262-623433393264/Rectangle_166.jpg`,
+    photoHover: '/images/team/george-hover.jpg',
   },
   {
     name: 'Валерия Лаврова',
@@ -351,7 +348,7 @@ export const team: TeamMember[] = [
     experience: 'более 3 лет в UX/UI',
     href: '/team/valeriya/',
     photo: '/images/team/valeriya.jpg',
-    photoHover: `${TILDA}/tild3461-3165-4435-a361-616632363661/Rectangle_159.jpg`,
+    photoHover: '/images/team/valeriya-hover.jpg',
   },
   {
     name: 'Регина Исачкина',
@@ -359,7 +356,7 @@ export const team: TeamMember[] = [
     experience: '6 месяцев опыта в SEO',
     href: '/team/regina/',
     photo: '/images/team/regina.jpg',
-    photoHover: `${TILDA}/tild3638-6338-4363-b932-646433656161/Rectangle_165.jpg`,
+    photoHover: '/images/team/regina-hover.jpg',
   },
 ];
 
@@ -588,20 +585,20 @@ export const mediaArticles: MediaArticle[] = [
     title: '«Один раз все настроить и забыть не получится»',
     description: 'Тимлид SEO в Kolesa Group о трендах поисковиков',
     href: 'https://digitalbusiness.kz/2025-06-23/odin-raz-vse-nastroit-i-zabit-ne-poluchitsya-timlid-seo-v-kolesa-group-o-trendah-poiskovikov/',
-    cover: `${TILDA}/tild3162-3361-4763-b665-646235386435/__2026-01-21__150456.png`,
+    cover: '/images/media/digitalbusiness.png',
   },
   {
     title: 'Зачем бизнесу страница 404 ошибки?',
     description:
       'Зачем бизнесу нужна страница 404 и как она влияет на пользователей и продажи',
     href: 'https://yvision.kz/post/zachem-biznesu-stranica-404-oshibki-396251',
-    cover: `${TILDA}/tild3836-3164-4164-b461-356637643463/BenditoMockup-Free-P.png`,
+    cover: '/images/media/yvision-404.png',
   },
   {
     title: 'SEO-советы от команды Kolesa Group',
     description: 'Максим Гайдар — советы по оптимизации от тимлида SEO-команды',
     href: 'https://www.facebook.com/KolesaGroup/photos/1297562963785695/',
-    cover: `${TILDA}/tild3363-3832-4539-a639-303263336435/__2026-01-21__153301.png`,
+    cover: '/images/media/kolesa-seo.png',
   },
 ];
 

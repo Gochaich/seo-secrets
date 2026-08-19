@@ -13,12 +13,6 @@ function ToolMark({ tool }: { tool: Tool }) {
         aria-hidden
         width={90}
         height={44}
-        /*
-         * unoptimized: часть иконок приходит с cdn.simpleicons.org без
-         * расширения в адресе, и оптимизатор Next такие SVG блокирует.
-         * Оптимизировать тут всё равно нечего — это векторные значки.
-         */
-        unoptimized
         className="max-h-11 w-auto max-w-[90px] object-contain"
       />
     );
