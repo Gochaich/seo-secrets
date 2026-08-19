@@ -10,11 +10,13 @@ import { hero } from '@content/ru/home';
  *   .hero__lead  { font-size:clamp(15px,2.5vw,18px); line-height:1.6; max-width:600px }
  *   .hero__blob  { width:min(520px,100%); drop-shadow(0 20px 80px rgba(0,180,255,.25)) }
  * На мобильных: одна колонка, текст по центру, картинка скрыта, кнопка 220px.
+ * Две колонки появляются с 768px, а полные отступы 90/180 — только с 1024px:
+ * на планшете 180px пустоты под первым экраном отрезали от него блок клиентов.
  */
 export function Hero() {
   return (
     <section className="overflow-hidden font-inter">
-      <div className="mx-auto grid max-w-[1200px] items-center gap-8 px-5 pt-[70px] pb-[60px] md:grid-cols-[1.1fr_0.9fr] md:pt-[90px] md:pb-[180px]">
+      <div className="px-page mx-auto grid max-w-[1200px] items-center gap-8 pt-[70px] pb-[60px] md:grid-cols-[1.1fr_0.9fr] lg:pt-[90px] lg:pb-[180px]">
         <div className="text-center md:text-left">
           <h1 className="mb-5 text-[clamp(28px,5vw,50px)] leading-[1.2] font-bold">
             {hero.title}

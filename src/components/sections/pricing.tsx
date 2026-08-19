@@ -29,7 +29,9 @@ function Check() {
 /**
  * «Цены на SEO услуги компании SEO Secrets»: три тарифа.
  *
- * Содержимое 1028px, зазор 24px — карточка выходит 327px.
+ * Содержимое 1028px, зазор 24px — карточка выходит 327px. Три тарифа в ряд
+ * встают только от 1024px: на планшете в портрете карточка вышла бы 226px,
+ * и из них 72 съели бы поля. До этой ширины — две колонки, на телефоне одна.
  * Карточки одной высоты (auto-rows-fr), кнопки прижаты к низу: текста
  * в тарифах разное количество, и без этого кнопки вставали бы вразнобой.
  *
@@ -42,7 +44,7 @@ function Check() {
  */
 export function Pricing() {
   return (
-    <section className="relative py-20 md:py-24">
+    <section className="relative py-section">
       <div
         aria-hidden
         className="pointer-events-none absolute top-[8%] -left-[420px] h-[620px] w-[560px] rounded-full bg-[radial-gradient(circle,var(--color-cyan)_0%,transparent_70%)] opacity-70 blur-[100px]"
@@ -56,7 +58,7 @@ export function Pricing() {
         className="pointer-events-none absolute top-[10%] -right-[440px] h-[900px] w-[600px] rounded-[50%] bg-[radial-gradient(ellipse,var(--color-accent-bright)_0%,var(--color-accent)_44%,transparent_76%)] opacity-90 blur-[90px]"
       />
 
-      <div className="relative mx-auto w-full max-w-[1068px] px-5">
+      <div className="relative mx-auto w-full max-w-[1068px] px-page">
         <h2 className="text-center text-3xl leading-tight font-extrabold text-balance md:text-[34px]">
           {pricingIntro.title}
         </h2>
@@ -67,11 +69,11 @@ export function Pricing() {
           {rich(pricingIntro.text)}
         </p>
 
-        <ul className="mt-12 grid auto-rows-fr gap-6 md:grid-cols-3">
+        <ul className="mt-12 grid auto-rows-fr gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {pricingTiers.map((tier) => (
             <li
               key={tier.name}
-              className="bg-surface flex flex-col rounded-[20px] px-9 pt-10 pb-8"
+              className="bg-surface flex flex-col rounded-[20px] px-6 pt-8 pb-7 sm:px-9 sm:pt-10 sm:pb-8"
             >
               <h3 className="text-[19px] font-bold">{tier.name}</h3>
               <p className="text-muted mt-3 text-[21px] font-bold">

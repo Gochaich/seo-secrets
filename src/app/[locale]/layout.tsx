@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter, Montserrat } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
@@ -44,6 +44,22 @@ export const metadata: Metadata = {
   title: 'SEO Secrets',
   description: 'Тестовая сборка нового сайта агентства.',
   robots: allowIndexing ? undefined : { index: false, follow: false },
+};
+
+/**
+ * Мета viewport Next.js ставит сам, здесь мы добавляем к нему две вещи.
+ *
+ * themeColor красит адресную строку мобильного браузера в цвет фона сайта —
+ * без него над тёмной страницей висит белая полоса. colorScheme сообщает
+ * браузеру, что тема тёмная, и системные элементы (скроллбар, поля ввода
+ * в форме заявки) рисуются тёмными, а не светлыми.
+ *
+ * Масштабирование щипком намеренно не запрещаем: user-scalable=no ломает
+ * доступность и режет оценку в Lighthouse.
+ */
+export const viewport: Viewport = {
+  themeColor: '#1e1e1e',
+  colorScheme: 'dark',
 };
 
 export function generateStaticParams() {

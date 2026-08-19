@@ -18,9 +18,9 @@ import { benefits, benefitsTitle } from '@content/ru/home';
  */
 export function Benefits() {
   return (
-    <section className="py-[60px]">
-      <div className="mx-auto max-w-[1200px] px-5">
-        <h2 className="mb-[45px] text-center text-[34px] leading-[1.1] font-bold md:mb-[90px]">
+    <section className="py-10 sm:py-[60px]">
+      <div className="px-page mx-auto max-w-[1200px]">
+        <h2 className="mb-[45px] text-center text-[26px] leading-[1.1] font-bold sm:text-[30px] md:mb-[90px] md:text-[34px]">
           {benefitsTitle}
         </h2>
 
@@ -28,9 +28,9 @@ export function Benefits() {
           {benefits.map((item, index) => (
             <li
               key={item.title}
-              className="grid grid-cols-[40px_1fr] gap-x-[7px]"
+              className="grid grid-cols-[30px_1fr] gap-x-[7px] sm:grid-cols-[40px_1fr]"
             >
-              <span className="text-accent-bright -mt-[6px] text-[44px] leading-none font-bold tabular-nums">
+              <span className="text-accent-bright -mt-[4px] text-[32px] leading-none font-bold tabular-nums sm:-mt-[6px] sm:text-[44px]">
                 {index + 1}
               </span>
 
