@@ -1,0 +1,73 @@
+# Выгрузка картинок с внешних CDN в репозиторий.
+#
+# Скрипт качает файлы по списку из scripts/assets.map.json и складывает
+# в public/images. Запускается на серверах GitHub — там есть интернет,
+# которого нет у агента в песочнице.
+#
+# Два способа запуска:
+#   1. Вручную: вкладка Actions -> «Выгрузка картинок» -> Run workflow.
+#   2. Автоматически, когда меняется сама карта адресов.
+#
+# Если Actions не сможет запушить коммит, включите право на запись:
+# Settings -> Actions -> General -> Workflow permissions ->
+# «Read and write permissions».
+
+name: Выгрузка картинок
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/assets.map.json
+      - .github/workflows/fetch-assets.yml
+
+permissions:
+  contents: write
+
+# Второй запуск не начнётся, пока не закончится первый: иначе два прогона
+# попытаются закоммитить одни и те же файлы.
+concurrency:
+  group: fetch-assets-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # Скрипт возвращает ненулевой код, если хоть один файл не скачался.
+      # Прерывать джоб на этом нельзя: остальные файлы уже лежат на диске
+      # и должны попасть в коммит. Код запоминаем и падаем в самом конце.
+      - name: Скачать файлы
+        id: fetch
+        run: |
+          set +e
+          npm run fetch:assets
+          echo "code=$?" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Закоммитить скачанное
+        run: |
+          if [ -z "$(git status --porcelain public/images)" ]; then
+            echo "Новых файлов нет, коммитить нечего."
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/images
+          git commit -m 'Картинки выгружены с внешних CDN'
+          git pull --rebase origin '${{ github.ref_name }}'
+          git push origin 'HEAD:${{ github.ref_name }}'
+
+      - name: Сообщить об ошибках выгрузки
+        if: steps.fetch.outputs.code != '0'
+        run: |
+          echo "Часть файлов не скачалась — смотрите строки со знаком ✗ выше."
+          exit 1
