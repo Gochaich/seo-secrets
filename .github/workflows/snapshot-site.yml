@@ -21,6 +21,7 @@ on:
   push:
     paths:
       - reference/pages.json
+      - scripts/snapshot-site.mjs
 
 permissions:
   contents: write

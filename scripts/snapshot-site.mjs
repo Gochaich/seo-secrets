@@ -27,6 +27,26 @@ for (const dir of ['html', 'css', 'screens']) {
   await mkdir(resolve(root, 'reference', dir), { recursive: true });
 }
 
+/**
+ * Открыть страницу.
+ *
+ * Ждём только загрузку документа. Условие networkidle здесь не работает:
+ * на страницах с плеерами YouTube сеть не затихает никогда — плеер тянет
+ * запросы постоянно, и ожидание упирается в таймаут. Именно так упали
+ * /otzyvy/ и /media/ в первом прогоне.
+ *
+ * Недостающее добираем прокруткой и коротким ожиданием: если load
+ * не наступит, снимаем что есть, а не роняем всю страницу.
+ */
+async function open(page, url) {
+  const res = await page.goto(url, {
+    waitUntil: 'domcontentloaded',
+    timeout: 45_000,
+  });
+  await page.waitForLoadState('load', { timeout: 20_000 }).catch(() => {});
+  return res;
+}
+
 /** Прокрутка до низа: без неё не сработает ленивая загрузка картинок */
 async function scrollToBottom(page) {
   await page.evaluate(async () => {
@@ -49,10 +69,17 @@ for (const { path, slug } of targets) {
   });
 
   try {
-    const res = await page.goto(BASE + path, {
-      waitUntil: 'networkidle',
-      timeout: 60_000,
-    });
+    // Вторая попытка на случай разовой сетевой заминки
+    let res = null;
+    for (let attempt = 1; attempt <= 2; attempt++) {
+      try {
+        res = await open(page, BASE + path);
+        break;
+      } catch (e) {
+        if (attempt === 2) throw e;
+        console.warn('  повтор после ошибки:', e.message.split('\n')[0]);
+      }
+    }
 
     if (!res || !res.ok()) {
       throw new Error(`ответ ${res ? res.status() : 'нет'}`);
@@ -82,7 +109,7 @@ for (const { path, slug } of targets) {
     }
 
     await scrollToBottom(page);
-    await page.waitForTimeout(500);
+    await page.waitForTimeout(1500);
     await page.screenshot({
       path: resolve(root, 'reference/screens', `${slug}.jpg`),
       fullPage: true,
