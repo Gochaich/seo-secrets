@@ -73,7 +73,7 @@ export function SiteHeader() {
       <div className="mx-10 border-t border-white/25" />
 
       {/* Нижняя строка: меню */}
-      <nav aria-label="Основное меню" className="px-10 py-6">
+      <nav aria-label="Основное меню" className="px-10 pt-6 pb-3">
         <ul className="flex flex-wrap items-center gap-x-[50px] gap-y-3">
           {mainNav.map((item) => (
             <li key={item.href}>

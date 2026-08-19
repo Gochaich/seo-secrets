@@ -6,6 +6,8 @@ import { aboutHero } from '@content/ru/about';
  *
  * Значения взяты из CSS текущего сайта: отступы секции 420px сверху
  * и 60px снизу, содержимое поднято на 80px, текст ограничен 650px.
+ * Верхний отступ уменьшен вдвое по просьбе владельца (420 → 210,
+ * мобильный 220 → 110): зазор до шапки был заметно больше нужного.
  *
  * Фоновые пятна — те же PNG, что и на оригинале: синее слева 590x520,
  * оранжевое справа 520x520. Здесь у нас есть исходники, поэтому рисовать
@@ -21,7 +23,7 @@ import { aboutHero } from '@content/ru/about';
  */
 export function AboutHero({ scrollTo }: { scrollTo: string }) {
   return (
-    <section className="relative overflow-hidden px-5 pt-[220px] pb-[60px] md:pt-[420px]">
+    <section className="relative overflow-hidden px-5 pt-[110px] pb-[60px] md:pt-[210px]">
       <Image
         src="/images/decor/about-glow-blue.png"
         alt=""
