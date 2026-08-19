@@ -8,7 +8,7 @@ import { whatsappCta } from '@content/ru/home';
  */
 export function WhatsAppCta({ className }: { className?: string }) {
   return (
-    <div className={`flex justify-center px-5 ${className ?? ''}`}>
+    <div className={`px-page flex justify-center ${className ?? ''}`}>
       <a
         href={whatsappWithText}
         target="_blank"

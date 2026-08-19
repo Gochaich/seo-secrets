@@ -30,7 +30,7 @@ function ClientLogo({ client }: { client: Client }) {
   );
 
   return (
-    <li className="group flex h-[70px] w-[140px] flex-none items-center justify-center overflow-hidden rounded-xl border border-white/[0.08] bg-surface p-3 transition duration-300 hover:-translate-y-[5px] hover:bg-white/[0.08] hover:shadow-[0_0_20px_rgba(54,224,255,0.3)]">
+    <li className="group flex h-[70px] w-full max-w-[140px] items-center justify-center overflow-hidden rounded-xl border border-white/[0.08] bg-surface p-3 transition duration-300 sm:w-[140px] sm:flex-none hover:-translate-y-[5px] hover:bg-white/[0.08] hover:shadow-[0_0_20px_rgba(54,224,255,0.3)]">
       {client.href ? (
         <a
           href={client.href}
@@ -53,7 +53,7 @@ function ClientGroup({ title, items }: { title: string; items: Client[] }) {
       <h3 className="mt-[50px] mb-[30px] text-[22px] font-semibold opacity-90 md:mt-[60px] md:mb-10 md:text-[26px]">
         {title}
       </h3>
-      <ul className="mx-auto grid max-w-[1100px] grid-cols-2 justify-items-center gap-6 sm:flex sm:flex-wrap sm:justify-center sm:gap-10">
+      <ul className="mx-auto grid max-w-[1100px] grid-cols-2 justify-items-center gap-4 sm:flex sm:flex-wrap sm:justify-center sm:gap-10">
         {items.map((client) => (
           <ClientLogo key={client.name} client={client} />
         ))}
@@ -64,7 +64,7 @@ function ClientGroup({ title, items }: { title: string; items: Client[] }) {
 
 export function Clients() {
   return (
-    <section className="px-5 pt-[30px] pb-20 text-center font-inter">
+    <section className="px-page pt-[30px] pb-16 text-center font-inter sm:pb-20">
       <h2 className="mb-[60px] text-[30px] font-bold md:text-[38px]">
         {clientsHeadings.title}
       </h2>

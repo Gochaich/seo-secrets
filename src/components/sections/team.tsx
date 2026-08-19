@@ -17,13 +17,13 @@ import { team } from '@content/ru/home';
  */
 export function Team() {
   return (
-    <section className="py-20 md:py-24">
-      <div className="mx-auto w-full max-w-[1140px] px-5">
+    <section className="py-section">
+      <div className="mx-auto w-full max-w-[1140px] px-page">
         <h2 className="text-center text-3xl leading-tight font-extrabold text-balance md:text-[34px]">
           Команда экспертов SEO Secrets
         </h2>
 
-        <ul className="mt-[60px] grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-10 grid gap-8 sm:mt-[60px] sm:grid-cols-2 lg:grid-cols-3 lg:gap-10">
           {team.map((member) => (
             <li key={member.href}>
               <Link

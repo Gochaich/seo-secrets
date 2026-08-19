@@ -53,8 +53,8 @@ function ToolMark({ tool }: { tool: Tool }) {
  */
 export function Tools() {
   return (
-    <section className="py-20 md:py-24">
-      <div className="mx-auto w-full max-w-[1130px] px-5">
+    <section className="py-section">
+      <div className="mx-auto w-full max-w-[1130px] px-page">
         <h2 className="text-center text-3xl leading-tight font-extrabold text-balance md:text-[34px]">
           {toolsIntro.title}
         </h2>
@@ -62,11 +62,11 @@ export function Tools() {
           {toolsIntro.lead}
         </p>
 
-        <ul className="mt-12 grid grid-cols-2 gap-[26px] sm:grid-cols-3 lg:grid-cols-6">
+        <ul className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-[26px] md:grid-cols-4 lg:grid-cols-6">
           {tools.map((tool, index) => (
             <li
               key={tool.name}
-              className={`bg-surface flex min-h-[130px] flex-col items-center justify-center gap-3.5 rounded-2xl px-3 py-6 text-center ${
+              className={`bg-surface flex min-h-[110px] flex-col items-center justify-center gap-3 rounded-2xl px-3 py-5 text-center sm:min-h-[130px] sm:gap-3.5 sm:py-6 ${
                 // Тринадцатая плитка открывает последний ряд из четырёх
                 index === 12 ? 'lg:col-start-2' : ''
               }`}

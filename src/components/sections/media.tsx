@@ -14,7 +14,7 @@ import { mediaArticles, mediaTitle, mediaVideos } from '@content/ru/home';
  */
 export function Media() {
   return (
-    <section className="relative py-20 md:py-24">
+    <section className="relative py-section">
       <div
         aria-hidden
         className="pointer-events-none absolute top-[8%] -left-[440px] h-[700px] w-[600px] rounded-full bg-[radial-gradient(circle,var(--color-yellow)_0%,var(--color-yellow)_30%,var(--color-green)_60%,transparent_80%)] opacity-85 blur-[100px]"
@@ -24,12 +24,12 @@ export function Media() {
         className="pointer-events-none absolute -right-[460px] -bottom-10 h-[1000px] w-[620px] rounded-[50%] bg-[radial-gradient(ellipse,var(--color-accent-bright)_0%,var(--color-accent)_44%,transparent_76%)] opacity-90 blur-[90px]"
       />
 
-      <div className="relative mx-auto w-full max-w-[1220px] px-5">
+      <div className="relative mx-auto w-full max-w-[1220px] px-page">
         <h2 className="text-center text-3xl leading-tight font-extrabold text-balance md:text-[34px]">
           {mediaTitle}
         </h2>
 
-        <ul className="mt-[70px] grid gap-9 md:grid-cols-3">
+        <ul className="mt-12 grid gap-9 sm:grid-cols-2 sm:gap-6 lg:mt-[70px] lg:grid-cols-3 lg:gap-9">
           {mediaVideos.map((video) => (
             <li
               key={video.youtubeId}
@@ -48,7 +48,7 @@ export function Media() {
           ))}
         </ul>
 
-        <ul className="mt-[70px] grid gap-9 md:grid-cols-3">
+        <ul className="mt-12 grid gap-9 sm:grid-cols-2 sm:gap-6 lg:mt-[70px] lg:grid-cols-3 lg:gap-9">
           {mediaArticles.map((article) => (
             <li
               key={article.href}
@@ -63,7 +63,7 @@ export function Media() {
                 className="aspect-[369/300] w-full object-cover"
               />
 
-              <div className="flex flex-1 flex-col px-6 pt-7 pb-7">
+              <div className="flex flex-1 flex-col px-5 pt-6 pb-6 sm:px-6 sm:pt-7 sm:pb-7">
                 <h3 className="text-[17px] leading-[1.6] font-bold">
                   {article.title}
                 </h3>

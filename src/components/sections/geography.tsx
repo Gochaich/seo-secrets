@@ -12,8 +12,8 @@ import { geography } from '@content/ru/home';
  */
 export function Geography() {
   return (
-    <section className="py-20 md:py-24">
-      <div className="mx-auto w-full max-w-[992px] px-5">
+    <section className="py-section">
+      <div className="mx-auto w-full max-w-[992px] px-page">
         <h2 className="text-center text-3xl leading-tight font-extrabold text-balance md:text-[34px]">
           {geography.title}
         </h2>
@@ -23,10 +23,10 @@ export function Geography() {
           alt={`Карта проектов агентства: ${geography.countries.join(', ')}`}
           width={952}
           height={490}
-          className="mt-20 h-auto w-full"
+          className="mt-12 h-auto w-full sm:mt-20"
         />
 
-        <div className="mt-11 flex justify-center">
+        <div className="mt-8 flex justify-center sm:mt-11">
           <WhatsAppButton />
         </div>
       </div>
