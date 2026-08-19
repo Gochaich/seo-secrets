@@ -39,7 +39,7 @@ function Check() {
  */
 export function Founder() {
   return (
-    <section className="relative py-20 md:py-24">
+    <section className="relative py-10 md:py-12">
       {/*
         Градиент для галочек. Один на секцию: у svg-градиента адресация по id,
         и дублировать одинаковый id в каждой галочке нельзя.

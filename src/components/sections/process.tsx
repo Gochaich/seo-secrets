@@ -50,7 +50,7 @@ function Step({ step, index }: { step: ProcessStep; index: number }) {
  */
 export function Process() {
   return (
-    <section className="relative py-20 md:py-24">
+    <section className="relative py-10 md:py-12">
       <div
         aria-hidden
         className="pointer-events-none absolute top-[2%] -left-32 h-[560px] w-[640px] rounded-full bg-[radial-gradient(circle,var(--color-yellow)_0%,var(--color-yellow)_34%,var(--color-green)_62%,transparent_80%)] opacity-80 blur-[90px]"

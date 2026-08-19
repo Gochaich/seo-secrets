@@ -64,7 +64,7 @@ function ClientGroup({ title, items }: { title: string; items: Client[] }) {
 
 export function Clients() {
   return (
-    <section className="px-5 pt-[30px] pb-20 text-center font-inter">
+    <section className="px-5 pt-[15px] pb-10 text-center font-inter">
       <h2 className="mb-[60px] text-[30px] font-bold md:text-[38px]">
         {clientsHeadings.title}
       </h2>

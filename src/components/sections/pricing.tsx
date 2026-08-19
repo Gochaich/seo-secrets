@@ -42,7 +42,7 @@ function Check() {
  */
 export function Pricing() {
   return (
-    <section className="relative py-20 md:py-24">
+    <section className="relative py-10 md:py-12">
       <div
         aria-hidden
         className="pointer-events-none absolute top-[8%] -left-[420px] h-[620px] w-[560px] rounded-full bg-[radial-gradient(circle,var(--color-cyan)_0%,transparent_70%)] opacity-70 blur-[100px]"

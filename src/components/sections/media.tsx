@@ -14,7 +14,7 @@ import { mediaArticles, mediaTitle, mediaVideos } from '@content/ru/home';
  */
 export function Media() {
   return (
-    <section className="relative py-20 md:py-24">
+    <section className="relative py-10 md:py-12">
       <div
         aria-hidden
         className="pointer-events-none absolute top-[8%] -left-[440px] h-[700px] w-[600px] rounded-full bg-[radial-gradient(circle,var(--color-yellow)_0%,var(--color-yellow)_30%,var(--color-green)_60%,transparent_80%)] opacity-85 blur-[100px]"

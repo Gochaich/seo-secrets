@@ -18,7 +18,7 @@ import { benefits, benefitsTitle } from '@content/ru/home';
  */
 export function Benefits() {
   return (
-    <section className="py-[60px]">
+    <section className="py-[30px]">
       <div className="mx-auto max-w-[1200px] px-5">
         <h2 className="mb-[45px] text-center text-[34px] leading-[1.1] font-bold md:mb-[90px]">
           {benefitsTitle}

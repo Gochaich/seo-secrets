@@ -32,7 +32,7 @@ export default async function AboutPage({
       </div>
       <Pricing />
       <RankingFactors />
-      <div className="flex justify-center pb-20 md:pb-24">
+      <div className="flex justify-center pb-10 md:pb-12">
         <WhatsAppButton />
       </div>
     </main>

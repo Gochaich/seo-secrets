@@ -13,7 +13,7 @@ import { faq, faqIntro } from '@content/ru/faq';
  */
 export function Faq() {
   return (
-    <section className="py-20 md:py-24">
+    <section className="py-10 md:py-12">
       <div className="mx-auto w-full max-w-[1040px] px-5">
         <h2 className="text-center text-3xl leading-tight font-extrabold text-balance md:text-[34px]">
           {faqIntro.title}

@@ -11,7 +11,7 @@ import { testimonials, testimonialsTitle } from '@content/ru/home';
  */
 export function Testimonials() {
   return (
-    <section className="py-20 md:py-24">
+    <section className="py-10 md:py-12">
       <div className="mx-auto w-full max-w-[1200px] px-5">
         <h2 className="text-center text-3xl leading-tight font-extrabold text-balance md:text-[34px]">
           {testimonialsTitle}

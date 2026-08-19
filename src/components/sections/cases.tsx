@@ -75,7 +75,7 @@ function CaseCard({ item }: { item: CaseStudy }) {
 /** «Кейсы агентства SEO Secrets»: три карточки в ряд, на планшете — две. */
 export function Cases() {
   return (
-    <section className="py-20 md:py-24">
+    <section className="py-10 md:py-12">
       <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-9 px-5">
         <div className="flex flex-col items-center gap-2 text-center">
           <h2 className="text-3xl leading-tight font-extrabold text-balance md:text-[34px]">

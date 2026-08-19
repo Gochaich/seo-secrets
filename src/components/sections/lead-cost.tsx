@@ -23,7 +23,7 @@ export function LeadCost() {
   const ratio = ppc.cpl / seo.cpl;
 
   return (
-    <section className="py-20 md:py-24">
+    <section className="py-10 md:py-12">
       <div className="mx-auto w-full max-w-[1140px] px-5">
         <h2 className="text-center text-3xl leading-tight font-extrabold text-balance md:text-[34px]">
           {leadCost.title}
