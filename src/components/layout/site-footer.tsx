@@ -32,12 +32,12 @@ export function SiteFooter() {
   return (
     <footer className="border-border bg-surface mt-auto border-t">
       {/*
-        Содержимое прижато к левому краю, а не центрировано: колонка с
-        логотипом начинается там же, где начинается контент страницы.
-        Первая колонка ровно 300px и без зазора — меню на оригинале стоит
-        вплотную к этой границе.
+        Содержимое прижато к левому краю, а не центрировано: при широком
+        экране блок остаётся на месте, а не уплывает вправо вместе с окном.
+        Отступ слева 120px. Первая колонка ровно 300px и без зазора — меню
+        на оригинале стоит вплотную к этой границе.
       */}
-      <div className="grid w-full gap-y-10 px-10 py-12 md:grid-cols-[300px_1fr] md:gap-x-0">
+      <div className="grid w-full gap-y-10 px-5 py-12 md:grid-cols-[300px_1fr] md:gap-x-0 md:px-[120px]">
         <div>
           <Link href="/" aria-label={site.name} className="inline-block">
             <Image
