@@ -1,0 +1,76 @@
+# Снимок текущего сайта на Tilda: разметка, стили и скриншоты страниц.
+#
+# У среды агента нет выхода в интернет, поэтому он не может открыть
+# seo-secrets.kz сам. Этот workflow снимает страницы на серверах GitHub
+# и кладёт результат в reference/ — дальше агент работает по фактическим
+# значениям из разметки, а не по присланной картинке.
+#
+# Запуск: вкладка Actions -> «Снимок сайта» -> Run workflow.
+# Можно указать slug одной страницы из reference/pages.json,
+# чтобы не переснимать все.
+
+name: Снимок сайта
+
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: 'Одна страница из reference/pages.json (пусто — все)'
+        required: false
+        type: string
+  push:
+    paths:
+      - reference/pages.json
+
+permissions:
+  contents: write
+
+concurrency:
+  group: snapshot-site-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # Ставим без --save: браузерный движок нужен только здесь и не должен
+      # попадать в зависимости проекта и в сборку на Vercel.
+      - name: Поставить Playwright
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+
+      - name: Снять страницы
+        id: snap
+        run: |
+          set +e
+          node scripts/snapshot-site.mjs ${{ inputs.slug }}
+          echo "code=$?" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Закоммитить снимок
+        run: |
+          if [ -z "$(git status --porcelain reference)" ]; then
+            echo "Изменений нет."
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add reference
+          git commit -m 'Снимок текущего сайта для сверки при переносе'
+          git pull --rebase origin '${{ github.ref_name }}'
+          git push origin 'HEAD:${{ github.ref_name }}'
+
+      - name: Сообщить об ошибках
+        if: steps.snap.outputs.code != '0'
+        run: |
+          echo "Часть страниц не снялась — смотрите строки со знаком ✗ выше."
+          exit 1
