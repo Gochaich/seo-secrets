@@ -1,29 +1,87 @@
+import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
-import { Container } from '@/components/layout/container';
-import { contacts, mainNav, site } from '@/lib/site';
+import {
+  PhoneIcon,
+  TelegramIcon,
+  WhatsAppIcon,
+} from '@/components/icons/social';
+import { contacts, footerNav, site } from '@/lib/site';
 
+const socials = [
+  { label: 'Позвонить', href: `tel:${contacts.phone}`, Icon: PhoneIcon },
+  { label: 'WhatsApp', href: contacts.whatsapp, Icon: WhatsAppIcon },
+  { label: 'Telegram', href: contacts.telegram, Icon: TelegramIcon },
+];
+
+/**
+ * Подвал: слева логотип, соцсети и копирайт, справа меню.
+ *
+ * Фон светлее страницы: тот же surface, что у карточек. Отдельный токен
+ * заводить не стал — оттенок уже есть в системе.
+ *
+ * Иконки соцсетей белые, а глиф внутри вырезан насквозь — сквозь него
+ * виден фон подвала. В шапке те же иконки идут наоборот, тёмным по светлому.
+ *
+ * Логотип ведёт на главную. На текущем сайте у него href="#", то есть клик
+ * прокручивает страницу вверх вместо перехода — docs/AUDIT.md, п. 9.
+ *
+ * Год в копирайте берётся из даты сборки, а не вписан руками: иначе в январе
+ * на сайте агентства висел бы прошлогодний год.
+ */
 export function SiteFooter() {
   return (
-    <footer className="mt-auto bg-surface">
-      <Container className="grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-3">
-        <div className="flex flex-col gap-3">
-          <span className="text-xl font-extrabold tracking-tight">
-            {site.name}
-          </span>
-          <p className="text-sm text-muted">{site.description}</p>
-          <p className="text-sm text-subtle">{contacts.address}</p>
+    <footer className="border-border bg-surface mt-auto border-t">
+      {/*
+        Содержимое прижато к левому краю, а не центрировано: при широком
+        экране блок остаётся на месте, а не уплывает вправо вместе с окном.
+        Отступ слева 120px. Первая колонка ровно 300px и без зазора — меню
+        на оригинале стоит вплотную к этой границе.
+      */}
+      <div className="grid w-full gap-y-10 px-5 py-12 md:grid-cols-[300px_1fr] md:gap-x-0 md:px-[120px]">
+        <div>
+          <Link href="/" aria-label={site.name} className="inline-block">
+            <Image
+              src="/images/brand/seo-secrets-logo.png"
+              alt={site.name}
+              width={262}
+              height={64}
+              className="h-auto w-[262px]"
+            />
+          </Link>
+
+          <ul className="mt-8 flex items-center gap-3">
+            {socials.map(({ label, href, Icon }) => (
+              <li key={label}>
+                <a
+                  href={href}
+                  target={href.startsWith('tel:') ? undefined : '_blank'}
+                  rel="noopener"
+                  aria-label={label}
+                  className="block transition-opacity hover:opacity-80"
+                >
+                  <Icon className="h-7 w-7 text-white" />
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <p className="text-subtle mt-8 text-[13px]">
+            © {new Date().getFullYear()} {site.name}
+          </p>
         </div>
 
-        <nav aria-label="Меню в подвале" className="flex flex-col gap-3">
-          <h2 className="text-sm font-semibold text-subtle uppercase">
-            Разделы
-          </h2>
-          <ul className="flex flex-col gap-2">
-            {mainNav.map((item) => (
+        <nav aria-label="Меню подвала">
+          {/* Ширина ограничена, чтобы строка переносилась после «агентство», как на оригинале */}
+          <p className="text-subtle max-w-[200px] text-[15px] leading-[1.45]">
+            {site.description}
+          </p>
+
+          <ul className="mt-6 flex flex-col gap-[10px]">
+            {footerNav.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-sm text-muted transition-colors hover:text-accent"
+                  className="text-muted hover:text-ink text-[15px] transition-colors"
                 >
                   {item.label}
                 </Link>
@@ -31,45 +89,7 @@ export function SiteFooter() {
             ))}
           </ul>
         </nav>
-
-        <div className="flex flex-col gap-3">
-          <h2 className="text-sm font-semibold text-subtle uppercase">
-            Связаться
-          </h2>
-          <a
-            href={`tel:${contacts.phone}`}
-            className="text-sm text-muted transition-colors hover:text-accent"
-          >
-            {contacts.phoneFormatted}
-          </a>
-          <a
-            href={contacts.whatsapp}
-            target="_blank"
-            rel="noopener nofollow"
-            className="text-sm text-muted transition-colors hover:text-accent"
-          >
-            WhatsApp
-          </a>
-          <a
-            href={contacts.telegram}
-            target="_blank"
-            rel="noopener nofollow"
-            className="text-sm text-muted transition-colors hover:text-accent"
-          >
-            Telegram
-          </a>
-          <a
-            href={`mailto:${contacts.email}`}
-            className="text-sm text-muted transition-colors hover:text-accent"
-          >
-            {contacts.email}
-          </a>
-        </div>
-      </Container>
-
-      <Container className="border-t border-border py-6">
-        <p className="text-xs text-subtle">© 2026 {site.name}</p>
-      </Container>
+      </div>
     </footer>
   );
 }

@@ -1,53 +1,92 @@
+import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
-import { ButtonLink } from '@/components/ui/button';
-import { Container } from '@/components/layout/container';
+import {
+  EmailIcon,
+  PhoneIcon,
+  TelegramIcon,
+  WhatsAppIcon,
+} from '@/components/icons/social';
 import { contacts, mainNav, site } from '@/lib/site';
+
+const LOGO = '/images/brand/seo-secrets-logo.png';
+
+const socials = [
+  { label: 'WhatsApp', href: contacts.whatsapp, Icon: WhatsAppIcon },
+  { label: 'Telegram', href: contacts.telegram, Icon: TelegramIcon },
+  { label: 'Телефон', href: `tel:${contacts.phone}`, Icon: PhoneIcon },
+  { label: 'Email', href: `mailto:${contacts.email}`, Icon: EmailIcon },
+];
 
 export function SiteHeader() {
   return (
-    <header className="border-b border-border bg-bg">
-      <Container className="flex flex-wrap items-center gap-x-8 gap-y-4 py-5">
-        <Link
-          href="/"
-          className="text-xl font-extrabold tracking-tight text-ink"
-        >
-          {site.name}
+    <header className="bg-bg">
+      {/* Верхняя строка: логотип — иконки — кнопка — телефон */}
+      <div className="flex items-center justify-between gap-6 px-10 py-3">
+        <Link href="/" aria-label={site.name} className="shrink-0">
+          <Image
+            src={LOGO}
+            alt={site.name}
+            width={180}
+            height={48}
+            priority
+            className="h-auto w-[180px]"
+          />
         </Link>
 
-        <nav aria-label="Основное меню" className="order-3 w-full lg:order-none lg:w-auto">
-          <ul className="flex flex-wrap gap-x-6 gap-y-2">
-            {mainNav.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className="text-base font-medium text-ink transition-colors hover:text-accent"
+        <div className="flex items-center gap-6">
+          <ul className="flex items-center gap-2">
+            {socials.map(({ label, href, Icon }) => (
+              <li key={label}>
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="nofollow noopener"
+                  aria-label={label}
+                  title={label}
+                  className="block text-white transition-opacity hover:opacity-80"
                 >
-                  {item.label}
-                </Link>
+                  <Icon />
+                </a>
               </li>
             ))}
           </ul>
-        </nav>
 
-        <div className="ml-auto flex items-center gap-4">
-          <ButtonLink
-            href={contacts.phone ? `tel:${contacts.phone}` : '#'}
-            variant="ghost"
-            size="sm"
-            className="hidden sm:inline-flex"
-          >
-            {contacts.phoneFormatted}
-          </ButtonLink>
-          <ButtonLink
+          <a
             href={contacts.whatsapp}
             target="_blank"
             rel="noopener"
-            size="sm"
+            className="rounded-full bg-accent px-8 py-2.5 text-[15px] font-semibold whitespace-nowrap text-white transition-colors hover:bg-accent-hover"
           >
             Связаться с нами
-          </ButtonLink>
+          </a>
+
+          <a
+            href={`tel:${contacts.phone}`}
+            className="text-[15px] whitespace-nowrap text-white transition-opacity hover:opacity-80"
+          >
+            {contacts.phone}
+          </a>
         </div>
-      </Container>
+      </div>
+
+      {/* Разделительная линия — с отступами по бокам, не во всю ширину */}
+      <div className="mx-10 border-t border-white/25" />
+
+      {/* Нижняя строка: меню */}
+      <nav aria-label="Основное меню" className="px-10 py-6">
+        <ul className="flex flex-wrap items-center gap-x-[50px] gap-y-3">
+          {mainNav.map((item) => (
+            <li key={item.href}>
+              <Link
+                href={item.href}
+                className="text-base text-white transition-colors hover:text-accent"
+              >
+                {item.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </header>
   );
 }

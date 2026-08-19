@@ -37,3 +37,15 @@ export const mainNav = [
   { href: '/contact-us/', label: 'Контакты' },
   { href: '/media/', label: 'Медиа' },
 ] as const;
+
+/**
+ * Меню подвала. Отличается от главного: пунктов пять, «Команда» подписана
+ * полностью, «Контакты» названы «Связаться с нами» — так на текущем сайте.
+ */
+export const footerNav = [
+  { href: '/o-nas/', label: 'О нас' },
+  { href: '/case-study/', label: 'Кейсы' },
+  { href: '/otzyvy/', label: 'Отзывы' },
+  { href: '/team/', label: 'Команда SEO Secrets' },
+  { href: '/contact-us/', label: 'Связаться с нами' },
+] as const;

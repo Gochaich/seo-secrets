@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Montserrat } from 'next/font/google';
+import { Inter, Montserrat } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
@@ -15,6 +15,18 @@ import '../globals.css';
 const montserrat = Montserrat({
   subsets: ['latin', 'cyrillic'],
   variable: '--font-montserrat',
+  display: 'swap',
+});
+
+/**
+ * Inter — шрифт кастомных блоков. В CSS текущего сайта он прописан
+ * (.hero, .clients-section и др.), но никогда не загружался, поэтому
+ * эти блоки рисуются системным шрифтом и выглядят по-разному на разных
+ * устройствах. Подключаем по-настоящему. См. docs/AUDIT.md, п. 5.
+ */
+const inter = Inter({
+  subsets: ['latin', 'cyrillic'],
+  variable: '--font-inter',
   display: 'swap',
 });
 
@@ -54,7 +66,10 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
 
   return (
-    <html lang={locale} className={`${montserrat.variable} h-full antialiased`}>
+    <html
+      lang={locale}
+      className={`${montserrat.variable} ${inter.variable} h-full antialiased`}
+    >
       <body className="flex min-h-full flex-col">
         <NextIntlClientProvider>
           <SiteHeader />
