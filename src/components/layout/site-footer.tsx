@@ -36,8 +36,12 @@ export function SiteFooter() {
         экране блок остаётся на месте, а не уплывает вправо вместе с окном.
         Отступ слева 120px. Первая колонка ровно 300px и без зазора — меню
         на оригинале стоит вплотную к этой границе.
+
+        В две колонки подвал встаёт только от 1024px: на планшете в портрете
+        поля в 120px и колонка в 300px оставляли меню 228px, и пункты
+        переносились по два слова. До этой ширины — одна колонка.
       */}
-      <div className="grid w-full gap-y-10 px-5 py-12 md:grid-cols-[300px_1fr] md:gap-x-0 md:px-[120px]">
+      <div className="px-page grid w-full gap-y-10 py-12 lg:grid-cols-[300px_1fr] lg:gap-x-0 lg:px-[120px]">
         <div>
           <Link href="/" aria-label={site.name} className="inline-block">
             <Image
@@ -45,11 +49,11 @@ export function SiteFooter() {
               alt={site.name}
               width={262}
               height={64}
-              className="h-auto w-[262px]"
+              className="h-auto w-[200px] sm:w-[262px]"
             />
           </Link>
 
-          <ul className="mt-8 flex items-center gap-3">
+          <ul className="mt-6 -mb-2 -ml-1.5 flex items-center">
             {socials.map(({ label, href, Icon }) => (
               <li key={label}>
                 <a
@@ -57,7 +61,7 @@ export function SiteFooter() {
                   target={href.startsWith('tel:') ? undefined : '_blank'}
                   rel="noopener"
                   aria-label={label}
-                  className="block transition-opacity hover:opacity-80"
+                  className="flex h-11 w-10 items-center justify-center transition-opacity hover:opacity-80"
                 >
                   <Icon className="h-7 w-7 text-white" />
                 </a>
@@ -81,7 +85,7 @@ export function SiteFooter() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-muted hover:text-ink text-[15px] transition-colors"
+                  className="text-muted hover:text-ink inline-block py-1 text-[15px] transition-colors lg:py-0"
                 >
                   {item.label}
                 </Link>

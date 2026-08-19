@@ -12,7 +12,7 @@ import { rankingFactors, rankingFactorsTitle } from '@content/ru/home';
  */
 export function RankingFactors() {
   return (
-    <section className="relative py-10 md:py-12">
+    <section className="relative py-section">
       {/*
         Свечение собрано из трёх слоёв. Одним не выходит: приглушишь
         прозрачностью — блок выцветает, уберёшь прозрачность — жёлтое пятно
@@ -32,7 +32,7 @@ export function RankingFactors() {
         className="pointer-events-none absolute top-[52%] -left-32 h-[360px] w-[460px] rounded-full bg-[radial-gradient(circle,var(--color-cyan)_0%,transparent_70%)] opacity-60 blur-[90px]"
       />
 
-      <div className="relative mx-auto w-full max-w-[1060px] px-5">
+      <div className="relative mx-auto w-full max-w-[1060px] px-page">
         <h2 className="text-center text-3xl leading-[1.5] font-extrabold text-balance md:text-[34px]">
           {rich(rankingFactorsTitle)}
         </h2>

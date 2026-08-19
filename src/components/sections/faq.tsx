@@ -13,8 +13,8 @@ import { faq, faqIntro } from '@content/ru/faq';
  */
 export function Faq() {
   return (
-    <section className="py-10 md:py-12">
-      <div className="mx-auto w-full max-w-[1040px] px-5">
+    <section className="py-section">
+      <div className="mx-auto w-full max-w-[1040px] px-page">
         <h2 className="text-center text-3xl leading-tight font-extrabold text-balance md:text-[34px]">
           {faqIntro.title}
         </h2>
@@ -26,7 +26,7 @@ export function Faq() {
               key={item.question}
               className="bg-surface group rounded-2xl"
             >
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-4 text-[15px] font-bold [&::-webkit-details-marker]:hidden">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-[15px] font-bold sm:px-6 [&::-webkit-details-marker]:hidden">
                 <span>
                   {index + 1}) {item.question}
                 </span>
@@ -40,7 +40,7 @@ export function Faq() {
                 </span>
               </summary>
 
-              <div className="text-muted flex flex-col gap-3 px-6 pb-5 text-sm leading-[1.6]">
+              <div className="text-muted flex flex-col gap-3 px-5 pb-5 text-sm leading-[1.6] sm:px-6">
                 {item.answer.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}

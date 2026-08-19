@@ -23,7 +23,7 @@ import { aboutHero } from '@content/ru/about';
  */
 export function AboutHero({ scrollTo }: { scrollTo: string }) {
   return (
-    <section className="relative overflow-hidden px-5 pt-[110px] pb-[60px] md:pt-[210px]">
+    <section className="px-page relative overflow-hidden pt-[110px] pb-[60px] md:pt-[210px]">
       <Image
         src="/images/decor/about-glow-blue.png"
         alt=""
