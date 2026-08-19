@@ -1,0 +1,19 @@
+[
+  { "path": "/", "slug": "home" },
+  { "path": "/o-nas/", "slug": "o-nas" },
+  { "path": "/team/", "slug": "team" },
+  { "path": "/team/max/", "slug": "team-max" },
+  { "path": "/team/shamil/", "slug": "team-shamil" },
+  { "path": "/team/alexandr/", "slug": "team-alexandr" },
+  { "path": "/team/george/", "slug": "team-george" },
+  { "path": "/team/valeriya/", "slug": "team-valeriya" },
+  { "path": "/team/regina/", "slug": "team-regina" },
+  { "path": "/case-study/", "slug": "case-study" },
+  {
+    "path": "/case-study/seo-kejs-kompanii-master-carp/",
+    "slug": "case-master-carp"
+  },
+  { "path": "/otzyvy/", "slug": "otzyvy" },
+  { "path": "/contact-us/", "slug": "contact-us" },
+  { "path": "/media/", "slug": "media" }
+]

@@ -1,0 +1,57 @@
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+
+/* ==== Стилизация иконок мессенджеров в хедере ==== */
+
+/* убираем белый фон-квадрат */
+.t-sociallinks__item .t-sociallinks__circle,
+.tmenu-mobile__social .t-sociallinks__circle {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* задаём нужный цвет кругов */
+.t-sociallinks__item a,
+.tmenu-mobile__social a {
+    background: #1E1E1E !important;   /* твой фирменный синий */
+    border-radius: 50% !important;
+}
+
+/* делаем иконку белой */
+.t-sociallinks__item a svg path,
+.tmenu-mobile__social a svg path {
+    fill: #ffffff !important;
+}
+
+/* ==== FIX: мобильный хэдер, чтобы меню не наезжало на логотип ==== */
+@media screen and (max-width: 640px){
+
+  /* основной оверлей меню — сдвигаем вниз */
+  .tmenu-mobile__menu{
+    padding-top: 110px !important;  /* можешь потом подогнать 90–130px */
+  }
+
+  /* на некоторых шаблонах Tilda пункты лежат в wrapper */
+  .tmenu-mobile__menuwrapper{
+    padding-top: 110px !important;
+  }
+
+  /* чтобы точно — если первый блок внутри меню липнет к верху, отодвинем его */
+  .tmenu-mobile__menu > div:first-child{
+    margin-top: 40px !important;
+  }
+}
+
+

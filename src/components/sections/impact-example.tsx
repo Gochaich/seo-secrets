@@ -7,7 +7,7 @@ import { impactExample } from '@content/ru/home';
  */
 export function ImpactExample() {
   return (
-    <section className="py-10 sm:py-[60px]">
+    <section className="py-5 sm:py-[30px]">
       <div className="px-page mx-auto grid max-w-[1200px] gap-8 md:grid-cols-2">
         <p className="text-[17px] leading-[1.55] sm:text-xl md:pt-[30px]">
           <strong className="font-bold text-accent-bright">

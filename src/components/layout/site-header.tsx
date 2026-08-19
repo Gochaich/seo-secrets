@@ -192,7 +192,7 @@ export function SiteHeader() {
       <div className="mx-10 hidden border-t border-white/25 lg:block" />
 
       {/* Десктоп: нижняя строка — меню */}
-      <nav aria-label="Основное меню" className="hidden px-10 py-6 lg:block">
+      <nav aria-label="Основное меню" className="hidden px-10 pt-6 pb-3 lg:block">
         <ul className="flex flex-wrap items-center gap-x-[50px] gap-y-3">
           {mainNav.map((item) => (
             <li key={item.href}>

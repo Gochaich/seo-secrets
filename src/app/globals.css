@@ -166,20 +166,20 @@
  */
 :root {
   --page-gutter: 20px;
-  --section-y: 56px;
+  --section-y: 28px;
 }
 
 @media (min-width: 640px) {
   :root {
     --page-gutter: 32px;
-    --section-y: 72px;
+    --section-y: 36px;
   }
 }
 
 @media (min-width: 1024px) {
   :root {
     --page-gutter: 20px;
-    --section-y: 96px;
+    --section-y: 48px;
   }
 }
 
@@ -188,7 +188,11 @@
   padding-inline: var(--page-gutter);
 }
 
-/* Вертикальные отступы секции */
+/*
+ * Вертикальные отступы секции. Значения уменьшены вдвое от снятых с Tilda
+ * (112/144/192) по просьбе владельца: на исходном сайте блоки стояли слишком
+ * далеко друг от друга. Меняются здесь и сразу во всех секциях.
+ */
 @utility py-section {
   padding-block: var(--section-y);
 }

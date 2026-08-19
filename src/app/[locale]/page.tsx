@@ -39,7 +39,7 @@ export default async function HomePage({
     <main className="overflow-x-clip">
       <Hero />
       <Clients />
-      <WhatsAppCta className="pt-[30px] pb-[30px]" />
+      <WhatsAppCta className="pt-[15px] pb-[15px]" />
       <Benefits />
       <ImpactExample />
       <Cases />
