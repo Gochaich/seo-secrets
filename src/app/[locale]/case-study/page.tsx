@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
+import { buildMetadata } from '@/lib/metadata';
 import { PageHero } from '@/components/sections/page-hero';
 import { Cases } from '@/components/sections/cases';
 import { Clients } from '@/components/sections/clients';
 import { WhatsAppButton } from '@/components/ui/whatsapp-button';
-import { casesHero, casesMeta } from '@content/ru/pages';
+import { casesHero } from '@content/ru/pages';
 
 /**
  * «Наши кейсы» (/case-study/). Ниже первого экрана — блоки кейсов и
@@ -26,10 +27,7 @@ const GLOWS = [
   },
 ] as const;
 
-export const metadata: Metadata = {
-  title: casesMeta.title,
-  description: casesMeta.description,
-};
+export const metadata: Metadata = buildMetadata('/case-study/');
 
 export default async function CaseStudyPage({
   params,

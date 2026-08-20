@@ -1,0 +1,22 @@
+<html><head><meta name="color-scheme" content="light dark"></head><body><pre style="word-wrap: break-word; white-space: pre-wrap;">User-Agent: *
+Disallow: /page71407787.html
+Disallow: /footer
+Disallow: /page71408561.html
+Disallow: /header
+Disallow: /page125410973.html
+Disallow: /ai-seo/
+Disallow: /page112797716.html
+Disallow: /error/
+Disallow: /tilda/form*
+Disallow: /tilda/rec*
+Disallow: /tilda/click*
+Disallow: /tilda/scroll*
+Disallow: /tilda/popup*
+Disallow: /tilda/cart*
+Disallow: /tilda/product*
+Disallow: /tilda/event*
+Disallow:
+
+
+Sitemap: https://seo-secrets.kz/sitemap.xml
+</pre></body></html>

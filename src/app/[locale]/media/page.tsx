@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
+import { buildMetadata } from '@/lib/metadata';
 import { PageHero } from '@/components/sections/page-hero';
 import { MediaVideos } from '@/components/sections/media-videos';
 import { Media } from '@/components/sections/media';
 import { Founder } from '@/components/sections/founder';
-import { mediaHero, mediaMeta } from '@content/ru/pages';
+import { mediaHero } from '@content/ru/pages';
 
 /**
  * «SEO Secrets в медиа» (/media/). Ниже первого экрана — ряд роликов,
@@ -27,10 +28,7 @@ const GLOWS = [
   },
 ] as const;
 
-export const metadata: Metadata = {
-  title: mediaMeta.title,
-  description: mediaMeta.description,
-};
+export const metadata: Metadata = buildMetadata('/media/');
 
 export default async function MediaPage({
   params,

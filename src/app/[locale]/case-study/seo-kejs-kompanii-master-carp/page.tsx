@@ -1,17 +1,14 @@
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
+import { buildMetadata } from '@/lib/metadata';
 import { CaseStudyMasterCarp } from '@/components/sections/case-study';
 import { WhatsAppButton } from '@/components/ui/whatsapp-button';
-import { caseMeta } from '@content/ru/case-master-carp';
 
 /**
  * Кейс Master Carp (/case-study/seo-kejs-kompanii-master-carp/).
  * Адрес совпадает с текущим сайтом один в один, редирект не нужен.
  */
-export const metadata: Metadata = {
-  title: caseMeta.title,
-  description: caseMeta.description,
-};
+export const metadata: Metadata = buildMetadata('/case-study/seo-kejs-kompanii-master-carp/');
 
 export default async function MasterCarpCasePage({
   params,

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { setRequestLocale } from 'next-intl/server';
+import { buildMetadata } from '@/lib/metadata';
 import { PersonProfile } from '@/components/sections/person-profile';
 import { routing } from '@/i18n/routing';
 import { site } from '@/lib/site';
@@ -28,13 +29,9 @@ export async function generateMetadata({
   params: Promise<Params>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const person = peopleBySlug.get(slug);
-  if (!person) return {};
-
-  return {
-    title: person.meta.title,
-    description: person.meta.description,
-  };
+  // Неизвестный slug — страница отдаст 404, метаданные ей не нужны
+  if (!peopleBySlug.has(slug)) return {};
+  return buildMetadata(`/team/${slug}/`);
 }
 
 export default async function PersonPage({

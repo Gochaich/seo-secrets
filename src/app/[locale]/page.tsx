@@ -1,4 +1,6 @@
+import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
+import { buildMetadata } from '@/lib/metadata';
 import { Hero } from '@/components/sections/hero';
 import { Clients } from '@/components/sections/clients';
 import { WhatsAppCta } from '@/components/sections/whatsapp-cta';
@@ -21,6 +23,8 @@ import { Faq } from '@/components/sections/faq';
  * Главная. Собирается блок за блоком по скриншотам текущего сайта.
  * Готово: первый экран, клиенты, влияние SEO, пример работы, кейсы, основатель, команда, этапы работы, факторы ранжирования, география, СМИ, цена лида, тарифы, видео-отзывы, инструменты, FAQ.
  */
+export const metadata: Metadata = buildMetadata('/');
+
 export default async function HomePage({
   params,
 }: {

@@ -126,6 +126,33 @@ for (const { path, slug } of targets) {
   }
 }
 
+/**
+ * Карта сайта и robots.txt с боевого домена.
+ *
+ * Нужны, чтобы сверить свой список адресов с тем, что Tilda отдаёт
+ * поисковикам, — и увидеть страницу, о которой мы не знали.
+ *
+ * Обычным fetch sitemap.xml не берётся: Tilda отвечает на него 403.
+ * Через страницу браузера — отдаёт: запрос уходит с тем же контекстом,
+ * что и обычная навигация. Поэтому качаем здесь, а не в fetch-assets.
+ */
+if (!only) {
+  const page = await browser.newPage();
+  for (const name of ['sitemap.xml', 'robots.txt']) {
+    try {
+      const res = await open(page, `${BASE}/${name}`);
+      if (!res || !res.ok()) throw new Error(`ответ ${res ? res.status() : 'нет'}`);
+      const text = await page.evaluate(() => document.documentElement.outerHTML);
+      await writeFile(resolve(root, 'reference', `tilda-${name}`), text);
+      console.log('✓', `/${name}`);
+    } catch (e) {
+      console.warn('✗', `/${name}`, e.message);
+      failed++;
+    }
+  }
+  await page.close();
+}
+
 await browser.close();
 console.log(`\nГотово: ${targets.length - failed} из ${targets.length}`);
 if (failed) process.exitCode = 1;
