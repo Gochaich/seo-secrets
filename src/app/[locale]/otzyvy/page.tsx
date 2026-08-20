@@ -5,7 +5,7 @@ import { PageHero } from '@/components/sections/page-hero';
 import { Testimonials } from '@/components/sections/testimonials';
 import { Faq } from '@/components/sections/faq';
 import { WhatsAppButton } from '@/components/ui/whatsapp-button';
-import { reviewsHero, reviewsMeta } from '@content/ru/pages';
+import { reviewsHero } from '@content/ru/pages';
 
 /**
  * «Отзывы» (/otzyvy/). Ниже первого экрана — видео-отзывы и F.A.Q.

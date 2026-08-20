@@ -6,7 +6,7 @@ import { Team } from '@/components/sections/team';
 import { Pricing } from '@/components/sections/pricing';
 import { RankingFactors } from '@/components/sections/ranking-factors';
 import { WhatsAppButton } from '@/components/ui/whatsapp-button';
-import { aboutHero, aboutMeta } from '@content/ru/about';
+import { aboutHero } from '@content/ru/about';
 
 /**
  * «О нас» (/o-nas/). Ниже первого экрана страница целиком собрана

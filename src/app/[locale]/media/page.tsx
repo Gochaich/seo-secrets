@@ -5,7 +5,7 @@ import { PageHero } from '@/components/sections/page-hero';
 import { MediaVideos } from '@/components/sections/media-videos';
 import { Media } from '@/components/sections/media';
 import { Founder } from '@/components/sections/founder';
-import { mediaHero, mediaMeta } from '@content/ru/pages';
+import { mediaHero } from '@content/ru/pages';
 
 /**
  * «SEO Secrets в медиа» (/media/). Ниже первого экрана — ряд роликов,

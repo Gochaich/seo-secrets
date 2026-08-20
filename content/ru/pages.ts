@@ -12,37 +12,14 @@ export const casesHero = {
   text: 'Как мы выводим компании в ТОП и усиливаем их присутствие в поиске.',
 } as const;
 
-export const casesMeta = {
-  title: 'SEO кейсы компании SEO Secrets на рынке Казахстана',
-  description:
-    'Кейсы по SEO агентства SEO Secrets на рынке Казахстана: мы заинтересованы в росте наших клиентов',
-} as const;
-
 export const reviewsHero = {
   title: 'Отзывы',
   text: 'Отзывы компаний-партнёров, которые доверили нам SEO-стратегию и получили результат',
 } as const;
 
-export const reviewsMeta = {
-  title: 'Отзывы об агентстве SEO Secrets',
-  description:
-    'Мы собрали честные отзывы о нашем сотрудничестве с Казахстанскими клиентами',
-} as const;
-
 export const mediaHero = {
   title: 'SEO Secrets в медиа',
   text: 'Выступления, интервью и экспертные комментарии',
-} as const;
-
-export const mediaMeta = {
-  title: 'СМИ',
-  description:
-    'SEO Secrets в медиа: выступления, интервью и экспертные комментарии',
-} as const;
-
-export const contactsMeta = {
-  title: 'Контакты компании SEO Secrets',
-  description: 'Телефон/WhatsApp: +77013017175, Telegram: maxmolodec',
 } as const;
 
 /**

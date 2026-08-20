@@ -4,7 +4,7 @@ import { buildMetadata } from '@/lib/metadata';
 import { PageHero } from '@/components/sections/page-hero';
 import { Team } from '@/components/sections/team';
 import { WhatsAppButton } from '@/components/ui/whatsapp-button';
-import { teamHero, teamMeta } from '@content/ru/team';
+import { teamHero } from '@content/ru/team';
 
 /**
  * «Команда» (/team/). Ниже первого экрана — тот же блок с карточками,

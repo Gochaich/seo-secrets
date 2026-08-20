@@ -4,7 +4,6 @@ import { buildMetadata } from '@/lib/metadata';
 import { ContactForm } from '@/components/sections/contact-form';
 import { BankDetails } from '@/components/sections/bank-details';
 import { Clients } from '@/components/sections/clients';
-import { contactsMeta } from '@content/ru/pages';
 
 /**
  * «Контакты» (/contact-us/): форма, реквизиты и блок клиентов с главной.
