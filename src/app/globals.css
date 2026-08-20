@@ -21,6 +21,12 @@
   --color-accent-bright: #1e5bff;
   /* Остановки фирменного градиента: синий -> бирюза -> зелёный -> жёлтый */
   --color-cyan: #36e0ff;
+  /* Остановки градиента на личных страницах сотрудников */
+  --color-badge-from: #0018f0;
+  --color-badge-mid: #00b4f0;
+  --color-badge-to: #00c2ea;
+  /* Должность на личной странице сотрудника — холодный, чуть голубоватый белый */
+  --color-accent-soft: #dfe7ff;
   --color-green: #5ac84a;
   /* Фирменный зелёный WhatsApp — глиф в кнопке «Связаться» */
   --color-whatsapp: #25d366;
@@ -64,6 +70,46 @@
 
 @utility bg-brand-gradient {
   background-image: var(--gradient-brand);
+}
+
+/*
+ * Синий градиент личных страниц сотрудников: им залиты плашки со
+ * специализацией и он же проявляется под чипом при наведении. От
+ * фирменного отличается тем, что дальше бирюзы не уходит — на карточке
+ * зелёный с жёлтым спорили бы с фотографией.
+ */
+:root {
+  --gradient-badge: linear-gradient(
+    120deg,
+    var(--color-badge-from) 0%,
+    var(--color-badge-mid) 50%,
+    var(--color-badge-to) 100%
+  );
+}
+
+@utility bg-badge-gradient {
+  background-image: var(--gradient-badge);
+}
+
+/*
+ * Карточка личной страницы сотрудника: ровная заливка и мягкая тень —
+ * так на оригинале. Здесь она отдельно от surface-card, у которой ещё
+ * градиент и светлая грань по верху: на плитке из шести карточек подряд
+ * этот блик читается как дефект печати.
+ */
+@utility person-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+/*
+ * Чип с навыком или нишей. Градиент лежит под содержимым отдельным слоем
+ * и проявляется по наведению — как на оригинале.
+ */
+@utility chip-glow {
+  box-shadow: 0 0 14px rgba(0, 180, 240, 0.35);
 }
 
 /*

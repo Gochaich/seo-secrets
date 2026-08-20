@@ -6,6 +6,12 @@
 
 export const site = {
   name: 'SEO Secrets',
+  /*
+   * Адрес боевого домена. Нужен там, где в разметку идёт абсолютный URL —
+   * например в schema.org на личных страницах сотрудников. На превью-сборках
+   * переопределяется через NEXT_PUBLIC_SITE_URL.
+   */
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://seo-secrets.kz',
   description: 'Алматинское агентство SEO Secrets',
   city: 'Алматы',
 } as const;
