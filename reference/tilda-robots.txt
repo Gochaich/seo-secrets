@@ -1,4 +1,4 @@
-User-Agent: *
+<html><head><meta name="color-scheme" content="light dark"></head><body><pre style="word-wrap: break-word; white-space: pre-wrap;">User-Agent: *
 Disallow: /page71407787.html
 Disallow: /footer
 Disallow: /page71408561.html
@@ -19,3 +19,4 @@ Disallow:
 
 
 Sitemap: https://seo-secrets.kz/sitemap.xml
+</pre></body></html>
