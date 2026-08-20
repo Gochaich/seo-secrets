@@ -50,9 +50,13 @@ export function ContactForm() {
           <input type="hidden" name="text" value={message} />
 
           <label className="block">
-            <span className="text-subtle mb-[5px] block text-base">
-              {contactForm.phoneLabel}
-            </span>
+            {/*
+             * Подпись видна только скринридеру: на оригинале над полями
+             * подписей нет, их роль играет placeholder. Но placeholder
+             * исчезает при вводе и скринридером не читается как подпись —
+             * поэтому она есть в разметке, просто не показана.
+             */}
+            <span className="sr-only">{contactForm.phoneLabel}</span>
             <input
               type="tel"
               inputMode="tel"
@@ -64,10 +68,8 @@ export function ContactForm() {
             />
           </label>
 
-          <label className="mt-8 block">
-            <span className="text-subtle mb-[5px] block text-base">
-              {contactForm.domainLabel}
-            </span>
+          <label className="mt-9 block">
+            <span className="sr-only">{contactForm.domainLabel}</span>
             <input
               type="text"
               inputMode="url"
