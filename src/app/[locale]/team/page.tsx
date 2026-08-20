@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
+import { buildMetadata } from '@/lib/metadata';
 import { PageHero } from '@/components/sections/page-hero';
 import { Team } from '@/components/sections/team';
 import { WhatsAppButton } from '@/components/ui/whatsapp-button';
@@ -31,10 +32,7 @@ const GLOWS = [
   },
 ] as const;
 
-export const metadata: Metadata = {
-  title: teamMeta.title,
-  description: teamMeta.description,
-};
+export const metadata: Metadata = buildMetadata('/team/');
 
 export default async function TeamPage({
   params,

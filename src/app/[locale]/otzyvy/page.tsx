@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
+import { buildMetadata } from '@/lib/metadata';
 import { PageHero } from '@/components/sections/page-hero';
 import { Testimonials } from '@/components/sections/testimonials';
 import { Faq } from '@/components/sections/faq';
@@ -26,10 +27,7 @@ const GLOWS = [
   },
 ] as const;
 
-export const metadata: Metadata = {
-  title: reviewsMeta.title,
-  description: reviewsMeta.description,
-};
+export const metadata: Metadata = buildMetadata('/otzyvy/');
 
 export default async function ReviewsPage({
   params,

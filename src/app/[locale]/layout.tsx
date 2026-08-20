@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
+import { site } from '@/lib/site';
 import { SiteHeader } from '@/components/layout/site-header';
 import { SiteFooter } from '@/components/layout/site-footer';
 import '../globals.css';
@@ -40,9 +41,18 @@ const inter = Inter({
 const allowIndexing = process.env.NEXT_PUBLIC_ALLOW_INDEXING === 'true';
 
 export const metadata: Metadata = {
-  // Заглушка. Настоящие метаданные переносятся с Tilda один в один на этапе 7.
-  title: 'SEO Secrets',
-  description: 'Тестовая сборка нового сайта агентства.',
+  /*
+   * metadataBase нужен, чтобы относительные адреса картинок в og-разметке
+   * превращались в абсолютные: соцсети относительные не понимают.
+   */
+  metadataBase: new URL(site.url),
+  /*
+   * Запасной заголовок. Каждая страница задаёт свой через buildMetadata,
+   * так что сюда попадают только служебные страницы вроде 404.
+   */
+  title: site.name,
+  description: site.description,
+  icons: { icon: '/images/brand/favicon.png' },
   robots: allowIndexing ? undefined : { index: false, follow: false },
 };
 

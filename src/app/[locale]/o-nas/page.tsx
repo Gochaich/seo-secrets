@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
+import { buildMetadata } from '@/lib/metadata';
 import { PageHero } from '@/components/sections/page-hero';
 import { Team } from '@/components/sections/team';
 import { Pricing } from '@/components/sections/pricing';
@@ -27,10 +28,7 @@ const GLOWS = [
   },
 ] as const;
 
-export const metadata: Metadata = {
-  title: aboutMeta.title,
-  description: aboutMeta.description,
-};
+export const metadata: Metadata = buildMetadata('/o-nas/');
 
 export default async function AboutPage({
   params,
