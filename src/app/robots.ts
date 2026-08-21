@@ -1,13 +1,12 @@
 import type { MetadataRoute } from 'next';
-import { site } from '@/lib/site';
+import { isIndexingAllowed, site } from '@/lib/site';
 
 /**
  * robots.txt. Next.js отдаёт его по /robots.txt из этого файла.
  *
- * Пока NEXT_PUBLIC_ALLOW_INDEXING не включён, закрываем сайт целиком:
- * копия на тестовом домене, попавшая в индекс, конкурирует с боевым
- * сайтом своим же контентом. Флаг включается один раз, на этапе 8,
- * и только на боевом домене.
+ * Пока индексация не разрешена, закрываем сайт целиком: копия на тестовом
+ * домене, попавшая в индекс, конкурирует с боевым сайтом своим же контентом.
+ * Условия разрешения — в isIndexingAllowed(): нужен и флаг, и не-превью.
  *
  * Правила Tilda (reference/tilda-robots.txt) сюда НЕ переносятся —
  * там закрыты её служебные адреса, которых у нас нет:
@@ -19,9 +18,7 @@ import { site } from '@/lib/site';
  * незачем. Если /ai-seo/ понадобится перенести — она вернётся сюда.
  */
 export default function robots(): MetadataRoute.Robots {
-  const allowIndexing = process.env.NEXT_PUBLIC_ALLOW_INDEXING === 'true';
-
-  if (!allowIndexing) {
+  if (!isIndexingAllowed()) {
     return { rules: { userAgent: '*', disallow: '/' } };
   }
 
