@@ -25,6 +25,18 @@ function ClientLogo({ client }: { client: Client }) {
       alt={client.name}
       width={140}
       height={70}
+      /*
+       * Настоящая ширина логотипа — 116px: плитка 140px минус подложка
+       * по 12px с каждой стороны. Без этой подсказки Next считает по width
+       * выше и отдаёт 256px на обычном экране и 384px на плотном, то есть
+       * вдвое больше нужного. На главной таких логотипов 25 штук, и лишний
+       * вес складывается в заметную величину.
+       *
+       * Само оформление отсюда не зависит: размер задаёт CSS плитки
+       * (max-h-full, max-w-full, object-contain), а sizes влияет только
+       * на то, какой из готовых размеров возьмёт браузер.
+       */
+      sizes="116px"
       className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
     />
   );
