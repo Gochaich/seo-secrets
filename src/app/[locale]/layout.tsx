@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
-import { site } from '@/lib/site';
+import { isIndexingAllowed, site } from '@/lib/site';
 import { SiteHeader } from '@/components/layout/site-header';
 import { SiteFooter } from '@/components/layout/site-footer';
 import '../globals.css';
@@ -34,11 +34,12 @@ const inter = Inter({
 /**
  * Индексация выключена по умолчанию и включается ОДНОЙ переменной окружения
  * NEXT_PUBLIC_ALLOW_INDEXING=true — только на боевом домене, на этапе 8.
+ * Превью-деплои закрыты всегда, даже с включённым флагом: см. isIndexingAllowed().
  *
  * Это не перестраховка: копия сайта на тестовом домене, попавшая в индекс, —
  * это дубль вашего же контента, который конкурирует с боевым сайтом.
  */
-const allowIndexing = process.env.NEXT_PUBLIC_ALLOW_INDEXING === 'true';
+const allowIndexing = isIndexingAllowed();
 
 export const metadata: Metadata = {
   /*
