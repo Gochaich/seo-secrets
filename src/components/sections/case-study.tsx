@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
+import { VideoEmbed } from '@/components/ui/video-embed';
 import { rich } from '@/lib/rich-text';
 import {
   caseAuthors,
@@ -332,15 +333,10 @@ export function CaseStudyMasterCarp() {
           <h2 className="text-center text-3xl leading-tight font-extrabold text-balance md:text-[34px]">
             {caseReview.title}
           </h2>
-          <div className="mx-auto mt-8 aspect-video max-w-[960px] overflow-hidden rounded-[4px]">
-            <iframe
-              src={`https://www.youtube-nocookie.com/embed/${caseReview.youtubeId}`}
+          <div className="mx-auto mt-8 max-w-[960px]">
+            <VideoEmbed
+              youtubeId={caseReview.youtubeId}
               title={`${caseReview.title}: Master Carp`}
-              loading="lazy"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-              className="h-full w-full border-0"
             />
           </div>
         </section>

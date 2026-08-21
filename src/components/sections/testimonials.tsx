@@ -1,3 +1,4 @@
+import { VideoEmbed } from '@/components/ui/video-embed';
 import { testimonials, testimonialsTitle } from '@content/ru/home';
 
 /**
@@ -5,9 +6,9 @@ import { testimonials, testimonialsTitle } from '@content/ru/home';
  *
  * Содержимое 1160px, зазор 40px — ролик выходит 360px.
  *
- * Плееры, как и в блоке «СМИ о нас», вставлены обычными iframe с
- * loading="lazy" и через youtube-nocookie. Вместе с тем блоком на главной
- * теперь шесть плееров — тем важнее заглушка вместо iframe, см. docs/AUDIT.md.
+ * Плееры вставлены заглушкой: показываем обложку, а сам плеер YouTube
+ * подставляем по нажатию. См. VideoEmbed — там объяснено, почему одного
+ * loading="lazy" тут было мало.
  */
 export function Testimonials() {
   return (
@@ -20,17 +21,10 @@ export function Testimonials() {
         <ul className="mt-12 grid gap-10 sm:grid-cols-2 sm:gap-8 lg:mt-[70px] lg:grid-cols-3 lg:gap-10">
           {testimonials.map((item) => (
             <li key={item.youtubeId}>
-              <div className="aspect-video overflow-hidden rounded-[4px]">
-                <iframe
-                  src={`https://www.youtube-nocookie.com/embed/${item.youtubeId}`}
-                  title={`Видео-отзыв: ${item.name}`}
-                  loading="lazy"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                  className="h-full w-full border-0"
-                />
-              </div>
+              <VideoEmbed
+                youtubeId={item.youtubeId}
+                title={`Видео-отзыв: ${item.name}`}
+              />
 
               <h3 className="mt-5 text-[18px] leading-[1.4] font-bold sm:text-[20px]">
                 {item.name}

@@ -1,3 +1,4 @@
+import { VideoEmbed } from '@/components/ui/video-embed';
 import Image from 'next/image';
 import { mediaArticles, mediaTitle, mediaVideos } from '@content/ru/home';
 
@@ -6,11 +7,9 @@ import { mediaArticles, mediaTitle, mediaVideos } from '@content/ru/home';
  *
  * Ширина содержимого 1180px, зазор 36px — карточка выходит 369px.
  *
- * Ролики вставлены обычными iframe, как на текущем сайте, но с loading="lazy"
- * и через youtube-nocookie: без ленивой загрузки три плеера тянут около
- * полутора мегабайт скриптов и портят метрики страницы, которую мы же
- * и продвигаем. Полностью убрать вес можно только заглушкой вместо плеера —
- * это отдельная задача, см. docs/AUDIT.md.
+ * Ролики вставлены заглушкой: обложка вместо плеера, плеер по нажатию.
+ * Три плеера тянули около полутора мегабайт скриптов и портили метрики
+ * страницы, которую мы же и продвигаем. См. VideoEmbed.
  */
 export function Media() {
   return (
@@ -31,19 +30,8 @@ export function Media() {
 
         <ul className="mt-12 grid gap-9 sm:grid-cols-2 sm:gap-6 lg:mt-[70px] lg:grid-cols-3 lg:gap-9">
           {mediaVideos.map((video) => (
-            <li
-              key={video.youtubeId}
-              className="aspect-video overflow-hidden rounded-[4px]"
-            >
-              <iframe
-                src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}`}
-                title={video.title}
-                loading="lazy"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-                className="h-full w-full border-0"
-              />
+            <li key={video.youtubeId}>
+              <VideoEmbed youtubeId={video.youtubeId} title={video.title} />
             </li>
           ))}
         </ul>
