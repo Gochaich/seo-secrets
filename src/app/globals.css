@@ -48,6 +48,10 @@
     var(--font-inter), system-ui, -apple-system, 'Segoe UI', Roboto, Arial,
     sans-serif;
 
+  /* Размеры текста в блоке FAQ */
+  --text-faq-question: 17px;
+  --text-faq-answer: 16px;
+
   /* Радиусы: пилюли и карточки */
   --radius-btn: 100px;
   --radius-card-lg: 22px;
