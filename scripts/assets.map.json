@@ -294,5 +294,29 @@
   [
     "https://seo-secrets.kz/robots.txt",
     "reference/tilda-robots.txt"
+  ],
+  [
+    "https://i.ytimg.com/vi/CFV1-ap1qMM/hqdefault.jpg",
+    "public/images/video/CFV1-ap1qMM.jpg"
+  ],
+  [
+    "https://i.ytimg.com/vi/F_ZRPAbvx4o/hqdefault.jpg",
+    "public/images/video/F_ZRPAbvx4o.jpg"
+  ],
+  [
+    "https://i.ytimg.com/vi/WbrnvMpQ57k/hqdefault.jpg",
+    "public/images/video/WbrnvMpQ57k.jpg"
+  ],
+  [
+    "https://i.ytimg.com/vi/nlFxhWVCmJQ/hqdefault.jpg",
+    "public/images/video/nlFxhWVCmJQ.jpg"
+  ],
+  [
+    "https://i.ytimg.com/vi/oue3NAX3Nh4/hqdefault.jpg",
+    "public/images/video/oue3NAX3Nh4.jpg"
+  ],
+  [
+    "https://i.ytimg.com/vi/zVWTOGJjETs/hqdefault.jpg",
+    "public/images/video/zVWTOGJjETs.jpg"
   ]
 ]
