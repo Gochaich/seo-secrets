@@ -664,6 +664,8 @@ export const tools: Tool[] = [
   { name: 'SQL', logoId: null },
   { name: 'OpenAI', logoId: 'openai' },
   { name: 'LLM Brand Monitor', logoId: 'llm-brand-monitor' },
+  { name: 'VWO', logoId: 'vwo' },
+  { name: 'Claude', logoId: 'claude' },
 ];
 
 /**
