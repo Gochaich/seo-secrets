@@ -638,87 +638,32 @@ export const toolsIntro = {
 } as const;
 
 /**
- * Начертание названия вместо картинки. На текущем сайте так оформлена
- * половина плиток: логотипа-файла нет, есть текст в фирменном цвете.
- *
- * size — размер на экране в px. В исходнике текст лежит в SVG с viewBox
- * вдвое больше самого элемента, поэтому экранный кегль там ровно вполовину
- * от указанного в разметке.
+ * logoId — идентификатор официального знака в локальном SVG-спрайте.
+ * У SQL нет единого официального логотипа, поэтому null выводит нейтральную
+ * иконку базы данных из набора интерфейсных иконок проекта.
  */
-export type ToolWordmark = {
-  text: string;
-  /** Чужой бренд-цвет. Держим здесь, а не в токенах: наша палитра от него не зависит */
-  color: string;
-  size: number;
-  /** Три цветных кружка перед названием — только у Monday */
-  dots?: boolean;
-};
-
 export type Tool = {
   name: string;
-  logo?: string;
-  wordmark?: ToolWordmark;
+  logoId: string | null;
 };
 
-/*
- * Источники логотипов сняты из разметки текущего сайта.
- *
- * У Semrush, GA4, GSC, BigQuery и OpenAI на сайте стоят адреса
- * cdn.simpleicons.org, но сервис их больше не отдаёт — при выгрузке все пять
- * вернули ошибку, остальные 40 файлов скачались. Значит эти плитки не грузятся
- * и на текущем сайте. Показываем их начертанием, как восемь соседних.
- * См. docs/AUDIT.md, п. 14.
- */
 export const tools: Tool[] = [
-  {
-    name: 'Serpstat',
-    wordmark: { text: 'Serpstat', color: '#1ba0ff', size: 15 },
-  },
-  {
-    name: 'Topvisor',
-    wordmark: { text: 'Topvisor', color: '#2c89ff', size: 13 },
-  },
-  {
-    name: 'Semrush',
-    wordmark: { text: 'Semrush', color: '#ff642d', size: 15 },
-  },
-  { name: 'Ahrefs', wordmark: { text: 'ahrefs', color: '#0a66ff', size: 17 } },
-  {
-    name: 'Netpeak Spider',
-    wordmark: { text: 'Netpeak Spider', color: '#00a8a8', size: 12 },
-  },
-  {
-    name: 'Screaming Frog',
-    logo: '/images/tools/screaming-frog.png',
-  },
-  {
-    name: 'JetOctopus',
-    wordmark: { text: 'JetOctopus', color: '#ffd100', size: 12 },
-  },
-  { name: 'GA4', wordmark: { text: 'GA4', color: '#e37400', size: 18 } },
-  { name: 'GSC', wordmark: { text: 'GSC', color: '#458cf5', size: 18 } },
-  {
-    name: 'Looker Studio',
-    logo: '/images/tools/looker.svg',
-  },
-  {
-    name: 'Tableau',
-    logo: '/images/tools/tableau.png',
-  },
-  {
-    name: 'Monday',
-    wordmark: { text: 'Monday', color: '#eaeaea', size: 11, dots: true },
-  },
-  {
-    name: 'BigQuery',
-    wordmark: { text: 'BigQuery', color: '#669df6', size: 14 },
-  },
-  { name: 'SQL', wordmark: { text: 'SQL', color: '#d6d7db', size: 18 } },
-  { name: 'OpenAI', wordmark: { text: 'OpenAI', color: '#ffffff', size: 16 } },
-  {
-    name: 'LLM Brand Monitor',
-    wordmark: { text: 'LLM Brand Monitor', color: '#36e0ff', size: 10 },
-  },
+  { name: 'Serpstat', logoId: 'serpstat' },
+  { name: 'Topvisor', logoId: 'topvisor' },
+  { name: 'Semrush', logoId: 'semrush' },
+  { name: 'Ahrefs', logoId: 'ahrefs' },
+  { name: 'Netpeak Spider', logoId: 'netpeak-spider' },
+  { name: 'Screaming Frog', logoId: 'screaming-frog' },
+  { name: 'JetOctopus', logoId: 'jetoctopus' },
+  { name: 'GA4', logoId: 'google-analytics' },
+  { name: 'GSC', logoId: 'google-search-console' },
+  { name: 'Looker Studio', logoId: 'looker-studio' },
+  { name: 'Tableau', logoId: 'tableau' },
+  { name: 'Monday', logoId: 'monday' },
+  { name: 'BigQuery', logoId: 'bigquery' },
+  { name: 'SQL', logoId: null },
+  { name: 'OpenAI', logoId: 'openai' },
+  { name: 'LLM Brand Monitor', logoId: 'llm-brand-monitor' },
 ];
 
 /**
