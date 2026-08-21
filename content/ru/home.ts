@@ -313,7 +313,7 @@ export const team: TeamMember[] = [
   {
     name: 'Максим Гайдар',
     role: 'Основатель SEO Secrets',
-    experience: '10+ лет',
+    experience: '10+ лет в SEO',
     href: '/team/max/',
     photo: '/images/team/maxim.jpg',
     photoHover: '/images/team/maxim-hover.jpg',
@@ -321,7 +321,7 @@ export const team: TeamMember[] = [
   {
     name: 'Шамиль Ахматшаев',
     role: 'Senior SEO специалист',
-    experience: '10 лет',
+    experience: '10 лет в SEO',
     href: '/team/shamil/',
     photo: '/images/team/shamil.jpg',
     photoHover: '/images/team/shamil-hover.jpg',
@@ -329,7 +329,7 @@ export const team: TeamMember[] = [
   {
     name: 'Александр Суворов',
     role: 'Senior SEO специалист',
-    experience: '8 лет',
+    experience: '8 лет опыта в SEO',
     href: '/team/alexandr/',
     photo: '/images/team/alexandr.jpg',
     photoHover: '/images/team/alexandr-hover.jpg',
@@ -337,7 +337,7 @@ export const team: TeamMember[] = [
   {
     name: 'Георгий Штыренко',
     role: 'Senior SEO специалист',
-    experience: '4+ лет',
+    experience: '4+ лет практики SEO',
     href: '/team/george/',
     photo: '/images/team/george.jpg',
     photoHover: '/images/team/george-hover.jpg',
@@ -345,7 +345,7 @@ export const team: TeamMember[] = [
   {
     name: 'Валерия Лаврова',
     role: 'UX/UI дизайнер',
-    experience: 'более 4 лет',
+    experience: 'более 4 лет в UX/UI',
     href: '/team/valeriya/',
     photo: '/images/team/valeriya.jpg',
     photoHover: '/images/team/valeriya-hover.jpg',
@@ -353,7 +353,7 @@ export const team: TeamMember[] = [
   {
     name: 'Регина Исачкина',
     role: 'Middle SEO специалист',
-    experience: '1+ год',
+    experience: '1+ год опыта в SEO',
     href: '/team/regina/',
     photo: '/images/team/regina.jpg',
     photoHover: '/images/team/regina-hover.jpg',
