@@ -1,55 +1,40 @@
-import Image from 'next/image';
+import { Database } from 'lucide-react';
 import { tools, toolsIntro, type Tool } from '@content/ru/home';
 
-/** Три кружка перед названием Monday — часть их логотипа */
-const MONDAY_DOTS = ['#f62e36', '#ffad00', '#00c875'];
+const TOOL_LOGO_SPRITE = '/images/tools/tools-sprite.svg';
 
 function ToolMark({ tool }: { tool: Tool }) {
-  if (tool.logo) {
+  if (!tool.logoId) {
     return (
-      <Image
-        src={tool.logo}
-        alt=""
+      <Database
         aria-hidden
-        width={90}
-        height={44}
-        className="max-h-11 w-auto max-w-[90px] object-contain"
+        className="h-11 w-11 text-[#d6d7db]"
+        strokeWidth={1.7}
       />
     );
   }
 
-  if (!tool.wordmark) return null;
-
   return (
-    <span aria-hidden className="flex items-center gap-1.5">
-      {tool.wordmark.dots &&
-        MONDAY_DOTS.map((dot) => (
-          <span
-            key={dot}
-            className="h-2 w-2 rounded-full"
-            style={{ backgroundColor: dot }}
-          />
-        ))}
-      <span
-        className="font-extrabold whitespace-nowrap"
-        style={{ color: tool.wordmark.color, fontSize: tool.wordmark.size }}
-      >
-        {tool.wordmark.text}
-      </span>
-    </span>
+    <svg
+      aria-hidden
+      viewBox="0 0 120 56"
+      className="h-14 w-[120px]"
+      focusable="false"
+    >
+      <use href={TOOL_LOGO_SPRITE + '#' + tool.logoId} />
+    </svg>
   );
 }
 
 /**
- * «SEO и AI SEO инструменты, которыми мы пользуемся»: 16 плиток по 6 в ряд.
+ * «SEO и AI SEO инструменты, которыми мы пользуемся»: 18 плиток по 6 в ряд.
  *
- * Содержимое 1090px, зазор 26px — плитка выходит 160px. В последнем ряду
- * четыре плитки, они центрируются сдвигом на колонку: при шести колонках
- * четыре по центру оставляют ровно по одной свободной с каждой стороны.
+ * Официальные знаки инструментов хранятся локально в одном SVG-спрайте:
+ * так карточки не зависят от внешних CDN и загружают один файл. У SQL нет
+ * единого официального логотипа, поэтому для него используется нейтральная
+ * иконка базы данных.
  *
- * У восьми инструментов на плитке картинка, у восьми — название в фирменном
- * цвете. Это не наш выбор, а разметка текущего сайта: у половины сервисов
- * там просто нет файла логотипа.
+ * Содержимое 1090px, зазор 26px — плитка выходит 160px.
  */
 export function Tools() {
   return (
@@ -63,15 +48,12 @@ export function Tools() {
         </p>
 
         <ul className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-[26px] md:grid-cols-4 lg:grid-cols-6">
-          {tools.map((tool, index) => (
+          {tools.map((tool) => (
             <li
               key={tool.name}
-              className={`bg-surface flex min-h-[110px] flex-col items-center justify-center gap-3 rounded-2xl px-3 py-5 text-center sm:min-h-[130px] sm:gap-3.5 sm:py-6 ${
-                // Тринадцатая плитка открывает последний ряд из четырёх
-                index === 12 ? 'lg:col-start-2' : ''
-              }`}
+              className="bg-surface flex min-h-[110px] flex-col items-center justify-center gap-3 rounded-2xl px-3 py-5 text-center sm:min-h-[130px] sm:py-6"
             >
-              <span className="flex h-11 items-center justify-center">
+              <span className="flex h-14 items-center justify-center">
                 <ToolMark tool={tool} />
               </span>
 
