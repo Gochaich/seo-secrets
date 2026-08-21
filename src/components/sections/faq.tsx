@@ -1,3 +1,4 @@
+import { JsonLd } from '@/lib/json-ld';
 import { WhatsAppButton } from '@/components/ui/whatsapp-button';
 import { faq, faqIntro } from '@content/ru/faq';
 
@@ -59,21 +60,18 @@ export function Faq() {
           Собирается из тех же данных, что и видимый блок, поэтому разойтись
           с текстом на странице не может.
         */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'FAQPage',
-              mainEntity: faq.map((item) => ({
-                '@type': 'Question',
-                name: item.question,
-                acceptedAnswer: {
-                  '@type': 'Answer',
-                  text: item.answer.join(' '),
-                },
-              })),
-            }),
+        <JsonLd
+          data={{
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: faq.map((item) => ({
+              '@type': 'Question',
+              name: item.question,
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: item.answer.join(' '),
+              },
+            })),
           }}
         />
       </div>

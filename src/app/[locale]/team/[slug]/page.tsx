@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { setRequestLocale } from 'next-intl/server';
+import { JsonLd } from '@/lib/json-ld';
 import { buildMetadata } from '@/lib/metadata';
 import { PersonProfile } from '@/components/sections/person-profile';
 import { routing } from '@/i18n/routing';
@@ -75,11 +76,7 @@ export default async function PersonPage({
 
   return (
     <main className="overflow-x-clip">
-      <script
-        type="application/ld+json"
-        // Разметка собрана нами из типизированных данных, чужого HTML тут нет.
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personLd) }}
-      />
+      <JsonLd data={personLd} />
       <PersonProfile person={person} />
     </main>
   );
