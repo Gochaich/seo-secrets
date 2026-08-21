@@ -27,16 +27,14 @@ function ToolMark({ tool }: { tool: Tool }) {
 }
 
 /**
- * «SEO и AI SEO инструменты, которыми мы пользуемся»: 16 плиток по 6 в ряд.
+ * «SEO и AI SEO инструменты, которыми мы пользуемся»: 18 плиток по 6 в ряд.
  *
  * Официальные знаки инструментов хранятся локально в одном SVG-спрайте:
  * так карточки не зависят от внешних CDN и загружают один файл. У SQL нет
  * единого официального логотипа, поэтому для него используется нейтральная
  * иконка базы данных.
  *
- * Содержимое 1090px, зазор 26px — плитка выходит 160px. В последнем ряду
- * четыре плитки, они центрируются сдвигом на колонку: при шести колонках
- * четыре по центру оставляют ровно по одной свободной с каждой стороны.
+ * Содержимое 1090px, зазор 26px — плитка выходит 160px.
  */
 export function Tools() {
   return (
@@ -50,10 +48,10 @@ export function Tools() {
         </p>
 
         <ul className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-[26px] md:grid-cols-4 lg:grid-cols-6">
-          {tools.map((tool, index) => (
+          {tools.map((tool) => (
             <li
               key={tool.name}
-              className={`bg-surface flex min-h-[110px] flex-col items-center justify-center gap-3 rounded-2xl px-3 py-5 text-center sm:min-h-[130px] sm:py-6 ${index === 12 ? 'lg:col-start-2' : ''}`}
+              className="bg-surface flex min-h-[110px] flex-col items-center justify-center gap-3 rounded-2xl px-3 py-5 text-center sm:min-h-[130px] sm:py-6"
             >
               <span className="flex h-14 items-center justify-center">
                 <ToolMark tool={tool} />
