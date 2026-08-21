@@ -4,14 +4,51 @@
  * Меняем номер или пункт меню здесь, а не в десяти компонентах.
  */
 
+const PRODUCTION_URL = 'https://seo-secrets.kz';
+
+/**
+ * Приводит NEXT_PUBLIC_SITE_URL к виду «https://домен» без слэша на конце.
+ *
+ * Переменную заполняет человек руками в настройках Vercel, и ошибиться в ней
+ * проще простого. Три случая, которые уже случались или могли:
+ *
+ *   ''                        переменная заведена, но пустая
+ *   'seo-secrets.vercel.app'  забыт протокол
+ *   'https://site.kz/'        лишний слэш на конце
+ *
+ * Первые два роняли сборку: new URL() бросал TypeError, деплой падал, и Vercel
+ * продолжал отдавать предыдущую удачную версию — сайт «замирал» на старом коде
+ * без единой заметной ошибки. Третий собирался, но давал двойной слэш
+ * в canonical и в карте сайта, то есть тихо ломал ровно то, ради чего мы
+ * эти адреса и проставляем.
+ *
+ * Поэтому значение нормализуется, а при совсем негодном — берётся боевой адрес.
+ * Опечатка в настройках не должна останавливать выкладку сайта.
+ */
+function resolveSiteUrl(raw: string | undefined): string {
+  const value = raw?.trim();
+  if (!value) return PRODUCTION_URL;
+
+  const withProtocol = /^https?:\/\//i.test(value) ? value : `https://${value}`;
+  try {
+    // origin отбрасывает путь, слэш на конце и строку запроса
+    return new URL(withProtocol).origin;
+  } catch {
+    console.warn(
+      `NEXT_PUBLIC_SITE_URL="${value}" — не похоже на адрес. Беру ${PRODUCTION_URL}.`,
+    );
+    return PRODUCTION_URL;
+  }
+}
+
 export const site = {
   name: 'SEO Secrets',
   /*
-   * Адрес боевого домена. Нужен там, где в разметку идёт абсолютный URL —
-   * например в schema.org на личных страницах сотрудников. На превью-сборках
-   * переопределяется через NEXT_PUBLIC_SITE_URL.
+   * Адрес сайта. Нужен там, где в разметку идёт абсолютный URL: canonical,
+   * og-картинки, карта сайта, schema.org. На превью-сборках переопределяется
+   * через NEXT_PUBLIC_SITE_URL — см. resolveSiteUrl выше.
    */
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://seo-secrets.kz',
+  url: resolveSiteUrl(process.env.NEXT_PUBLIC_SITE_URL),
   description: 'Алматинское агентство SEO Secrets',
   city: 'Алматы',
 } as const;
