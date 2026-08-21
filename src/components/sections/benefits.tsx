@@ -35,7 +35,7 @@ export function Benefits() {
               </span>
 
               <div>
-                <h3 className="mb-3 text-xl font-semibold">{item.title}</h3>
+                <div className="mb-3 text-xl font-semibold">{item.title}</div>
                 {item.text.map((line) => (
                   <p key={line} className="text-sm leading-[1.55]">
                     {line}
